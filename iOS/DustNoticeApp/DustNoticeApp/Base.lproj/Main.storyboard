@@ -26,11 +26,19 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
+                                <rect key="frame" x="143" y="169" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="1:1" id="8ET-Uo-2fH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DXy-y6-Rcm" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Fbj-rK-Gqf"/>
                             <constraint firstItem="DXy-y6-Rcm" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="OcL-rm-ct7"/>
+                            <constraint firstItem="5AL-qZ-Dy9" firstAttribute="top" secondItem="DXy-y6-Rcm" secondAttribute="bottom" constant="20" id="kQH-hg-k2E"/>
+                            <constraint firstItem="5AL-qZ-Dy9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tPm-32-0hK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
