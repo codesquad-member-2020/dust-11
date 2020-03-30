@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="MeasuringStationViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-y6-Rcm">
-                                <rect key="frame" x="115" y="74" width="184" height="48"/>
+                                <rect key="frame" x="95.666666666666686" y="74" width="184" height="48"/>
                                 <attributedString key="attributedText">
                                     <fragment content="미세먼지 앱">
                                         <attributes>
@@ -27,13 +27,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_face-smile-big_118879" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
-                                <rect key="frame" x="127" y="130" width="160" height="160"/>
+                                <rect key="frame" x="116" y="130" width="143" height="142.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="1:1" id="8ET-Uo-2fH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-AG-Hic">
-                                <rect key="frame" x="181" y="298" width="52" height="36"/>
+                                <rect key="frame" x="161.66666666666666" y="270.66666666666669" width="52" height="36"/>
                                 <attributedString key="attributedText">
                                     <fragment content="좋음">
                                         <attributes>
@@ -44,16 +44,71 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK1-AD-XCD">
+                                <rect key="frame" x="127.66666666666666" y="371.66666666666669" width="119.66666666666666" height="19.666666666666686"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="강남구 측정소 기준">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="AppleSDGothicNeo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZL-QK-FEq">
+                                <rect key="frame" x="197.66666666666663" y="315.33333333333331" width="141" height="36"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="어제 07:00">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB6-an-rPj">
+                                <rect key="frame" x="48" y="310.66666666666669" width="118" height="45"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="21 ">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="𝜇">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="STIXGeneral-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="g/m3">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DXy-y6-Rcm" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Fbj-rK-Gqf"/>
+                            <constraint firstItem="fZL-QK-FEq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="1.43" id="JQ4-DI-Jcr"/>
+                            <constraint firstItem="fZL-QK-FEq" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="8.5" id="MIE-ik-yWW"/>
                             <constraint firstItem="DXy-y6-Rcm" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="OcL-rm-ct7"/>
-                            <constraint firstItem="hS9-AG-Hic" firstAttribute="top" secondItem="5AL-qZ-Dy9" secondAttribute="bottom" constant="8" symbolic="YES" id="QdP-Jf-eOW"/>
+                            <constraint firstItem="hS9-AG-Hic" firstAttribute="top" secondItem="5AL-qZ-Dy9" secondAttribute="bottom" constant="-2" id="QdP-Jf-eOW"/>
+                            <constraint firstItem="aK1-AD-XCD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="TS4-YL-KXC"/>
+                            <constraint firstItem="bB6-an-rPj" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="0.57" id="WEi-bx-nAw"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="height" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="4.8" id="bSb-sv-ubJ"/>
                             <constraint firstItem="5AL-qZ-Dy9" firstAttribute="top" secondItem="DXy-y6-Rcm" secondAttribute="bottom" constant="8" symbolic="YES" id="kQH-hg-k2E"/>
+                            <constraint firstItem="bB6-an-rPj" firstAttribute="centerY" secondItem="fZL-QK-FEq" secondAttribute="centerY" id="pkG-MQ-3dt"/>
+                            <constraint firstItem="aK1-AD-XCD" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="65" id="rqn-qS-S1E"/>
                             <constraint firstItem="hS9-AG-Hic" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="sy7-Gk-QQA"/>
                             <constraint firstItem="5AL-qZ-Dy9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tPm-32-0hK"/>
+                            <constraint firstItem="bB6-an-rPj" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="4" id="vIa-kI-FAJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -61,18 +116,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
         <!--예보-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="MapViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcQ-aU-4CR">
-                                <rect key="frame" x="125" y="74" width="164" height="36"/>
+                                <rect key="frame" x="105.66666666666669" y="74" width="164" height="36"/>
                                 <attributedString key="attributedText">
                                     <fragment content="미세먼지 예보">
                                         <attributes>
