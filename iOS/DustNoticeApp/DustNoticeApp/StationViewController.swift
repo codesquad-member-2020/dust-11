@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MeasuringStationViewController: UIViewController {
+final class StationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
