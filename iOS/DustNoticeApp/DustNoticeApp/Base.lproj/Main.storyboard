@@ -92,6 +92,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-2I-sal">
+                                <rect key="frame" x="0.0" y="372.66666666666674" width="375" height="356.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -99,15 +104,20 @@
                             <constraint firstItem="fZL-QK-FEq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="1.43" id="JQ4-DI-Jcr"/>
                             <constraint firstItem="fZL-QK-FEq" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="8.5" id="MIE-ik-yWW"/>
                             <constraint firstItem="DXy-y6-Rcm" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="10" id="OcL-rm-ct7"/>
+                            <constraint firstItem="NFL-2I-sal" firstAttribute="width" secondItem="PQr-Ze-W5v" secondAttribute="width" id="Pen-dh-htb"/>
                             <constraint firstItem="hS9-AG-Hic" firstAttribute="top" secondItem="5AL-qZ-Dy9" secondAttribute="bottom" constant="-2" id="QdP-Jf-eOW"/>
                             <constraint firstItem="aK1-AD-XCD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="TS4-YL-KXC"/>
                             <constraint firstItem="bB6-an-rPj" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="0.57" id="WEi-bx-nAw"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="NFL-2I-sal" secondAttribute="trailing" id="YDB-UB-U89"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="height" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="5" id="bSb-sv-ubJ"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="NFL-2I-sal" secondAttribute="bottom" id="hlY-22-ea2"/>
+                            <constraint firstItem="NFL-2I-sal" firstAttribute="height" secondItem="PQr-Ze-W5v" secondAttribute="height" multiplier="0.52" id="jzS-hw-C2Y"/>
                             <constraint firstItem="5AL-qZ-Dy9" firstAttribute="top" secondItem="DXy-y6-Rcm" secondAttribute="bottom" constant="8" symbolic="YES" id="kQH-hg-k2E"/>
                             <constraint firstItem="bB6-an-rPj" firstAttribute="centerY" secondItem="fZL-QK-FEq" secondAttribute="centerY" id="pkG-MQ-3dt"/>
                             <constraint firstItem="aK1-AD-XCD" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="55" id="rqn-qS-S1E"/>
                             <constraint firstItem="hS9-AG-Hic" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="sy7-Gk-QQA"/>
                             <constraint firstItem="5AL-qZ-Dy9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tPm-32-0hK"/>
+                            <constraint firstItem="NFL-2I-sal" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="uhg-cC-VYr"/>
                             <constraint firstItem="bB6-an-rPj" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="4" id="vIa-kI-FAJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -116,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="748" y="-320.68965517241378"/>
         </scene>
         <!--예보-->
         <scene sceneID="wg7-f3-ORb">
