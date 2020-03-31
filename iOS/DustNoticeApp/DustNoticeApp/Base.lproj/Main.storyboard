@@ -115,11 +115,11 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="dateLabel" destination="fZL-QK-FEq" id="AVE-JP-mqO"/>
-                                    <outlet property="emogi" destination="5AL-qZ-Dy9" id="TWg-Z1-Rx7"/>
+                                    <outlet property="emogiView" destination="5AL-qZ-Dy9" id="TWg-Z1-Rx7"/>
                                     <outlet property="measureLabel" destination="bB6-an-rPj" id="qa3-QZ-1Pm"/>
                                     <outlet property="stationLabel" destination="aK1-AD-XCD" id="SMm-sz-9ps"/>
                                     <outlet property="statusLabel" destination="hS9-AG-Hic" id="0ot-lH-r4i"/>
-                                    <outlet property="title" destination="DXy-y6-Rcm" id="le3-ML-TpO"/>
+                                    <outlet property="titleLabel" destination="DXy-y6-Rcm" id="le3-ML-TpO"/>
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-2I-sal">

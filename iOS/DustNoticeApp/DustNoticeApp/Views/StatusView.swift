@@ -9,8 +9,8 @@ import UIKit
 
 final class StatusView: UIView {
     //MARK:- IBOutlet
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var emogi: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var emogiView: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var measureLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
