@@ -24,6 +24,7 @@
 		5A64F6CB24332F5C00A1C8FF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CA24332F5C00A1C8FF /* UIColorExtension.swift */; };
 		5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */; };
 		5A64F6CF2433316D00A1C8FF /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */; };
+		5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5A64F6CA24332F5C00A1C8FF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtension.swift; sourceTree = "<group>"; };
 		5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				5A0CBCC72432F17C003B9774 /* Views */,
 				5A0CBCC42432EE60003B9774 /* ViewModels */,
 				5A0CBCC12432EBE4003B9774 /* Models */,
+				5A64F6D424337AEF00A1C8FF /* Delegates */,
 				5A4A9D362431CF7B00354ABC /* AppDelegate.swift */,
 				5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */,
 				5A4A9D3A2431CF7B00354ABC /* StationViewController.swift */,
@@ -185,6 +188,14 @@
 				5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5A64F6D424337AEF00A1C8FF /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 				5A4A9D3D2431CF7B00354ABC /* MapViewController.swift in Sources */,
 				5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */,
 				5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */,
+				5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */,
 				5A0CBCCB2432FF6E003B9774 /* DustInfoDataSource.swift in Sources */,
 				5A64F6CF2433316D00A1C8FF /* StatusViewModel.swift in Sources */,
 				5A64F6C824332EDE00A1C8FF /* StatusView.swift in Sources */,

@@ -29,7 +29,7 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face-smile-big" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
                                         <rect key="frame" x="117.66666666666667" y="58" width="139.66666666666663" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="1:1" id="8ET-Uo-2fH"/>
@@ -145,6 +145,7 @@
                     <tabBarItem key="tabBarItem" title="미세먼지" image="smoke.fill" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dustInfoTableView" destination="NFL-2I-sal" id="Ttk-ep-IW0"/>
+                        <outlet property="statusView" destination="Vtq-Ym-aKv" id="BMj-BA-AYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -271,7 +272,6 @@
     </scenes>
     <resources>
         <image name="clock.fill" width="17" height="17"/>
-        <image name="face-smile-big" width="42.666667938232422" height="42.666667938232422"/>
         <image name="play.fill" catalog="system" width="58" height="64"/>
         <image name="smoke.fill" width="19" height="14"/>
     </resources>

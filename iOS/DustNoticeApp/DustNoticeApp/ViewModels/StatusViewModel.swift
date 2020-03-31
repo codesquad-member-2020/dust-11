@@ -9,17 +9,31 @@
 import UIKit
 
 final class StatusViewModel {
-    var status: Status!
+    func configure(_ statusView: StatusView, dustInfoViewModel: DustInfoViewModel) {
+        switch dustInfoViewModel.dustGrade {
+        case .good:
+            bind(statusView, status: Status.good)
+        case .usual:
+            bind(statusView, status: Status.usual)
+        case .bad:
+            bind(statusView, status: Status.bad)
+        case .veryBad:
+            bind(statusView, status: Status.veryBad)
+        }
+    }
     
-    
+    private func bind(_ statusView: StatusView, status: Status) {
+        statusView.gradientLayer.colors = status.rawValue.gradientColors
+        statusView.emogiView.image = status.rawValue.emojiImage
+        statusView.statusLabel.text = status.rawValue.statusLabelText
+    }
 }
 
 extension StatusViewModel {
     struct StatusData: Equatable {
-        let grade: UInt
-        let gradientColor: [CGColor]
+        let gradientColors: [CGColor]
         let statusLabelText: String
-        let emojiView: UIImageView
+        let emojiImage: UIImage
     }
     
     enum Status: RawRepresentable {
@@ -32,14 +46,14 @@ extension StatusViewModel {
         
         init?(rawValue: StatusViewModel.StatusData) {
             switch rawValue {
-            case .init(grade: 1, gradientColor: CAGradientLayer.gradientBlueColor,
-                       statusLabelText: "좋음", emojiView: UIImageView(image: #imageLiteral(resourceName: "face-smile-big"))): self = .good
-            case .init(grade: 2, gradientColor: CAGradientLayer.gradientGreenColor,
-                       statusLabelText: "보통", emojiView: UIImageView(image: #imageLiteral(resourceName: "face-tiny-smile"))): self = .usual
-            case .init(grade: 3, gradientColor: CAGradientLayer.gradientOrangeColor,
-                       statusLabelText: "나쁨", emojiView: UIImageView(image: #imageLiteral(resourceName: "face-sad"))): self = .bad
-            case .init(grade: 4, gradientColor: CAGradientLayer.gradientRedColor,
-                       statusLabelText: "매우나쁨", emojiView: UIImageView(image: #imageLiteral(resourceName: "face-crying"))): self = .veryBad
+            case .init(gradientColors: CAGradientLayer.gradientBlueColor,
+                       statusLabelText: "좋음", emojiImage: UIImage(named: "face-smile-big")!): self = .good
+            case .init(gradientColors: CAGradientLayer.gradientGreenColor,
+                       statusLabelText: "보통", emojiImage: UIImage(named: "face-tiny-smile")!): self = .usual
+            case .init(gradientColors: CAGradientLayer.gradientOrangeColor,
+                       statusLabelText: "나쁨", emojiImage: UIImage(named: "face-sad")!): self = .bad
+            case .init(gradientColors: CAGradientLayer.gradientRedColor,
+                       statusLabelText: "매우나쁨", emojiImage: UIImage(named: "face-crying")!): self = .veryBad
             default:
                 return nil
             }
@@ -48,27 +62,26 @@ extension StatusViewModel {
         var rawValue: StatusViewModel.StatusData {
             switch self {
             case .good:
-                return StatusViewModel.StatusData(grade: 1,
-                                             gradientColor: CAGradientLayer.gradientBlueColor,
-                                             statusLabelText: "좋음",
-                                             emojiView: UIImageView(image: #imageLiteral(resourceName: "face-smile-big")))
+                return StatusViewModel.StatusData(
+                    gradientColors: CAGradientLayer.gradientBlueColor,
+                    statusLabelText: "좋음",
+                    emojiImage: UIImage(named: "face-smile-big")!)
             case .usual:
-                return StatusViewModel.StatusData(grade: 2,
-                                             gradientColor: CAGradientLayer.gradientGreenColor,
-                                             statusLabelText: "보통",
-                                             emojiView: UIImageView(image: #imageLiteral(resourceName: "face-tiny-smile")))
+                return StatusViewModel.StatusData(
+                    gradientColors: CAGradientLayer.gradientGreenColor,
+                    statusLabelText: "보통",
+                    emojiImage: UIImage(named: "face-tiny-smile")!)
             case .bad:
-                return StatusViewModel.StatusData(grade: 3,
-                                             gradientColor: CAGradientLayer.gradientOrangeColor,
-                                             statusLabelText: "나쁨",
-                                             emojiView: UIImageView(image: #imageLiteral(resourceName: "face-sad")))
+                return StatusViewModel.StatusData(
+                    gradientColors: CAGradientLayer.gradientOrangeColor,
+                    statusLabelText: "나쁨",
+                    emojiImage: UIImage(named: "face-sad")!)
             case .veryBad:
-                return StatusViewModel.StatusData(grade: 4,
-                                             gradientColor: CAGradientLayer.gradientRedColor,
-                                             statusLabelText: "매우나쁨",
-                                             emojiView: UIImageView(image: #imageLiteral(resourceName: "face-crying")))
+                return StatusViewModel.StatusData(
+                    gradientColors: CAGradientLayer.gradientRedColor,
+                    statusLabelText: "매우나쁨",
+                    emojiImage: UIImage(named: "face-crying")!)
             }
         }
     }
-    
 }

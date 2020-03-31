@@ -43,6 +43,7 @@ final class DustInfoCell: UITableViewCell, ReusableView {
         setDustValueLabel()
     }
     
+    var barWidthConstraintLayout: NSLayoutConstraint?
     private func setDustValueBar() {
         addSubview(dustValueBar)
         dustValueBar.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -50,6 +51,10 @@ final class DustInfoCell: UITableViewCell, ReusableView {
         dustValueBar.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dustValueBar.heightAnchor.constraint(equalTo: self.heightAnchor,
                                              multiplier: 1).isActive = true
+        barWidthConstraintLayout = dustValueBar.widthAnchor.constraint(equalToConstant: 0)
+        
+        guard let barWidthConstraintLayout = barWidthConstraintLayout else { return }
+        barWidthConstraintLayout.isActive = true
     }
     
     private func setDustValueLabel() {
@@ -67,6 +72,13 @@ final class DustInfoCell: UITableViewCell, ReusableView {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    override func prepareForReuse() {
+        dustValueBar.backgroundColor = nil
+        dustValueLabel.text = nil
+        guard let barWidthConstraintLayout = barWidthConstraintLayout else { return }
+        barWidthConstraintLayout.constant = 0
     }
 }
 

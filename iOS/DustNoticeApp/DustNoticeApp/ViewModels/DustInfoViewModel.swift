@@ -18,12 +18,9 @@ final class DustInfoViewModel {
     
     func configure(_ dustInfoCell: DustInfoCell) {
         dustInfoCell.dustValueLabel.text = dustValueString
-        guard let barSuperview = dustInfoCell.dustValueBar.superview else { return }
-        
-        let multiplier = Double(dustValue) / 200
-        dustInfoCell.dustValueBar.widthAnchor.constraint(equalTo: barSuperview.widthAnchor,
-                                                         multiplier: CGFloat(multiplier)).isActive = true
         dustInfoCell.dustValueBar.backgroundColor = backgroundColor
+        guard let barWidthConstraintLayout = dustInfoCell.barWidthConstraintLayout else { return }
+        barWidthConstraintLayout.constant = CGFloat(dustValue)
     }
     
     private var dustValue: UInt {
@@ -41,7 +38,7 @@ final class DustInfoViewModel {
         case veryBad
     }
     
-    private var dustGrade: DustGrade {
+    var dustGrade: DustGrade {
         return DustGrade(rawValue: dustInfo.dustGrade) ?? DustGrade.good
     }
     

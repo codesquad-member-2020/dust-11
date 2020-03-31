@@ -16,11 +16,21 @@ final class StatusView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var stationLabel: UILabel!
     
+    //MARK:- Internal Property
+    let gradientLayer = CAGradientLayer()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+        gradientLayer.frame = bounds
+        self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
