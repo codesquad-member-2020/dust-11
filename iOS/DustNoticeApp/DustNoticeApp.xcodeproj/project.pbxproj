@@ -20,6 +20,10 @@
 		5A4A9D452431CF7D00354ABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4A9D432431CF7D00354ABC /* LaunchScreen.storyboard */; };
 		5A4A9D502431CF7D00354ABC /* DustNoticeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D4F2431CF7D00354ABC /* DustNoticeAppTests.swift */; };
 		5A4A9D5B2431CF7D00354ABC /* DustNoticeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D5A2431CF7D00354ABC /* DustNoticeAppUITests.swift */; };
+		5A64F6C824332EDE00A1C8FF /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6C724332EDE00A1C8FF /* StatusView.swift */; };
+		5A64F6CB24332F5C00A1C8FF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CA24332F5C00A1C8FF /* UIColorExtension.swift */; };
+		5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */; };
+		5A64F6CF2433316D00A1C8FF /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		5A4A9D562431CF7D00354ABC /* DustNoticeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DustNoticeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4A9D5A2431CF7D00354ABC /* DustNoticeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustNoticeAppUITests.swift; sourceTree = "<group>"; };
 		5A4A9D5C2431CF7D00354ABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A64F6C724332EDE00A1C8FF /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		5A64F6CA24332F5C00A1C8FF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtension.swift; sourceTree = "<group>"; };
+		5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */,
+				5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -107,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0CBCC82432F1A1003B9774 /* DustInfoCell.swift */,
+				5A64F6C724332EDE00A1C8FF /* StatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +144,7 @@
 		5A4A9D352431CF7B00354ABC /* DustNoticeApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A64F6C924332F4300A1C8FF /* Utils */,
 				5A0CBCC72432F17C003B9774 /* Views */,
 				5A0CBCC42432EE60003B9774 /* ViewModels */,
 				5A0CBCC12432EBE4003B9774 /* Models */,
@@ -165,6 +176,15 @@
 				5A4A9D5C2431CF7D00354ABC /* Info.plist */,
 			);
 			path = DustNoticeAppUITests;
+			sourceTree = "<group>";
+		};
+		5A64F6C924332F4300A1C8FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5A64F6CA24332F5C00A1C8FF /* UIColorExtension.swift */,
+				5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,11 +319,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A4A9D3D2431CF7B00354ABC /* MapViewController.swift in Sources */,
+				5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */,
 				5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */,
 				5A0CBCCB2432FF6E003B9774 /* DustInfoDataSource.swift in Sources */,
+				5A64F6CF2433316D00A1C8FF /* StatusViewModel.swift in Sources */,
+				5A64F6C824332EDE00A1C8FF /* StatusView.swift in Sources */,
 				5A4A9D3B2431CF7B00354ABC /* StationViewController.swift in Sources */,
 				5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */,
 				5A0CBCC92432F1A1003B9774 /* DustInfoCell.swift in Sources */,
+				5A64F6CB24332F5C00A1C8FF /* UIColorExtension.swift in Sources */,
 				5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */,
 				5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */,
 			);
