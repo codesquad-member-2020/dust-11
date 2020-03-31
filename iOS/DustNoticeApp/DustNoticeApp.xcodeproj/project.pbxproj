@@ -151,8 +151,6 @@
 				5A0CBCC42432EE60003B9774 /* ViewModels */,
 				5A0CBCC12432EBE4003B9774 /* Models */,
 				5A64F6D424337AEF00A1C8FF /* Delegates */,
-				5A4A9D362431CF7B00354ABC /* AppDelegate.swift */,
-				5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */,
 				5A4A9D3A2431CF7B00354ABC /* StationViewController.swift */,
 				5A4A9D3C2431CF7B00354ABC /* MapViewController.swift */,
 				5A4A9D3E2431CF7B00354ABC /* Main.storyboard */,
@@ -193,6 +191,8 @@
 		5A64F6D424337AEF00A1C8FF /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				5A4A9D362431CF7B00354ABC /* AppDelegate.swift */,
+				5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */,
 				5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */,
 			);
 			path = Delegates;

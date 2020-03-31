@@ -23,7 +23,7 @@ final class DustInfoViewModel {
         barWidthConstraintLayout.constant = CGFloat(dustValue)
     }
     
-    private var dustValue: UInt {
+    var dustValue: UInt {
         return dustInfo.dustValue
     }
     
