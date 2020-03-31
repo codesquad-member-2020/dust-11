@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CBCC22432EC0D003B9774 /* DustInfo.swift */; };
+		5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */; };
 		5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D362431CF7B00354ABC /* AppDelegate.swift */; };
 		5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */; };
 		5A4A9D3B2431CF7B00354ABC /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D3A2431CF7B00354ABC /* StationViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		5A0CBCC22432EC0D003B9774 /* DustInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfo.swift; sourceTree = "<group>"; };
+		5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoViewModel.swift; sourceTree = "<group>"; };
 		5A4A9D332431CF7B00354ABC /* DustNoticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustNoticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4A9D362431CF7B00354ABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5A0CBCC42432EE60003B9774 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		5A4A9D2A2431CF7B00354ABC = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		5A4A9D352431CF7B00354ABC /* DustNoticeApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A0CBCC42432EE60003B9774 /* ViewModels */,
 				5A0CBCC12432EBE4003B9774 /* Models */,
 				5A4A9D362431CF7B00354ABC /* AppDelegate.swift */,
 				5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */,
@@ -277,6 +288,7 @@
 				5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */,
 				5A4A9D3B2431CF7B00354ABC /* StationViewController.swift in Sources */,
 				5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */,
+				5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */,
 				5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

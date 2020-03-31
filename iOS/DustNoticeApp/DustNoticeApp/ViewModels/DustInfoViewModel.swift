@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+final class DustInfoViewModel {
+    private let dustInfo: DustInfo
+    private let calendar = Calendar(identifier: .gregorian)
+    
+    init(dustInfo: DustInfo) {
+        self.dustInfo = dustInfo
+    }
+}
