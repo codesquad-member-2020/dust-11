@@ -31,6 +31,7 @@ public class DustRestController {
     urlBuilder.append("&" + URLEncoder.encode("addr","UTF-8") + "=" + URLEncoder.encode("서울", "UTF-8")); /*주소 이름*/
     urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("강남구", "UTF-8")); /*측정소 이름*/
     urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*측정소 이름*/
+
     URL url = new URL(urlBuilder.toString());
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setRequestMethod("GET");
@@ -49,6 +50,7 @@ public class DustRestController {
     rd.close();
     conn.disconnect();
     return sb.toString();
+
   }
 
   @GetMapping("/xy")
