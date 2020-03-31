@@ -122,6 +122,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="smoke.fill" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="dustInfoTableView" destination="NFL-2I-sal" id="Ttk-ep-IW0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

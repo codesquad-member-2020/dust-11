@@ -10,6 +10,7 @@
 		5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CBCC22432EC0D003B9774 /* DustInfo.swift */; };
 		5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */; };
 		5A0CBCC92432F1A1003B9774 /* DustInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CBCC82432F1A1003B9774 /* DustInfoCell.swift */; };
+		5A0CBCCB2432FF6E003B9774 /* DustInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CBCCA2432FF6E003B9774 /* DustInfoDataSource.swift */; };
 		5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D362431CF7B00354ABC /* AppDelegate.swift */; };
 		5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */; };
 		5A4A9D3B2431CF7B00354ABC /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A9D3A2431CF7B00354ABC /* StationViewController.swift */; };
@@ -42,6 +43,7 @@
 		5A0CBCC22432EC0D003B9774 /* DustInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfo.swift; sourceTree = "<group>"; };
 		5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoViewModel.swift; sourceTree = "<group>"; };
 		5A0CBCC82432F1A1003B9774 /* DustInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoCell.swift; sourceTree = "<group>"; };
+		5A0CBCCA2432FF6E003B9774 /* DustInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoDataSource.swift; sourceTree = "<group>"; };
 		5A4A9D332431CF7B00354ABC /* DustNoticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustNoticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4A9D362431CF7B00354ABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A4A9D382431CF7B00354ABC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0CBCC22432EC0D003B9774 /* DustInfo.swift */,
+				5A0CBCCA2432FF6E003B9774 /* DustInfoDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				5A4A9D3D2431CF7B00354ABC /* MapViewController.swift in Sources */,
 				5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */,
+				5A0CBCCB2432FF6E003B9774 /* DustInfoDataSource.swift in Sources */,
 				5A4A9D3B2431CF7B00354ABC /* StationViewController.swift in Sources */,
 				5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */,
 				5A0CBCC92432F1A1003B9774 /* DustInfoCell.swift in Sources */,
