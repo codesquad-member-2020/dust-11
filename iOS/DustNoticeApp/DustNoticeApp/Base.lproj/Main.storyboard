@@ -181,7 +181,7 @@
                                     <fragment content="지역별 등급 레이블">
                                         <attributes>
                                             <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="10" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" size="10" name="AppleSDGothicNeo-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
