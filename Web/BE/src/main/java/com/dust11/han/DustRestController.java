@@ -20,7 +20,7 @@ public class DustRestController {
 
   @GetMapping("")
   @ApiOperation("요청하면 무조건 강남구 측정소에 대한 결과를 반환해요")
-  public ApiResult<String> stations() throws IOException {
+  public String stations() throws IOException {
     StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getMsrstnList");
     urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D"); /*Service Key*/
     urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
@@ -28,6 +28,7 @@ public class DustRestController {
     urlBuilder.append("&" + URLEncoder.encode("addr","UTF-8") + "=" + URLEncoder.encode("서울", "UTF-8")); /*주소 이름*/
     urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("강남구", "UTF-8")); /*측정소 이름*/
     urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*측정소 이름*/
+
     URL url = new URL(urlBuilder.toString());
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setRequestMethod("GET");
@@ -45,6 +46,6 @@ public class DustRestController {
     }
     rd.close();
     conn.disconnect();
-    return ApiResult.OK(sb.toString());
+    return sb.toString();
   }
 }
