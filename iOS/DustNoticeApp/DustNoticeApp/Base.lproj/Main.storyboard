@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-Ym-aKv" userLabel="Gradient View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-Ym-aKv" userLabel="Status View" customClass="StatusView" customModule="DustNoticeApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="328.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-y6-Rcm">
@@ -113,6 +113,14 @@
                                     <constraint firstItem="fZL-QK-FEq" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="8.5" id="sNp-qy-2cj"/>
                                     <constraint firstItem="bB6-an-rPj" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" multiplier="0.57" id="w59-Pi-1fd"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="fZL-QK-FEq" id="AVE-JP-mqO"/>
+                                    <outlet property="emogi" destination="5AL-qZ-Dy9" id="TWg-Z1-Rx7"/>
+                                    <outlet property="measureLabel" destination="bB6-an-rPj" id="qa3-QZ-1Pm"/>
+                                    <outlet property="stationLabel" destination="aK1-AD-XCD" id="SMm-sz-9ps"/>
+                                    <outlet property="statusLabel" destination="hS9-AG-Hic" id="0ot-lH-r4i"/>
+                                    <outlet property="title" destination="DXy-y6-Rcm" id="le3-ML-TpO"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-2I-sal">
                                 <rect key="frame" x="0.0" y="372.66666666666674" width="375" height="356.33333333333326"/>
