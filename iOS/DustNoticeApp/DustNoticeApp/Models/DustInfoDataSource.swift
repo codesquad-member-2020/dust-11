@@ -12,13 +12,13 @@ final class DustInfoDataSource: NSObject, UITableViewDataSource {
     private let dustInfoViewModels = [DustInfoViewModel]()
     
     enum Quantity {
-        static let numberOfSections = 1
+        static let numberOfRows = 10
     }
 }
 
 extension DustInfoDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Quantity.numberOfSections
+        return Quantity.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
