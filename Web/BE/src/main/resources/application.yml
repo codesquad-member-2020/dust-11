@@ -17,3 +17,6 @@ logging:
     org.springframework.web: error
     com.dust11.han: debug
     sql: debug
+
+api:
+  key: vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D
