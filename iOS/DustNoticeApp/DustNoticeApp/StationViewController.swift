@@ -22,6 +22,8 @@ final class StationViewController: UIViewController {
     
     private func setupDustInfoTableView() {
         dustInfoTableView.dataSource = dustInfoDataSource
+        dustInfoTableView.register(DustInfoCell.self,
+                                   forCellReuseIdentifier: DustInfoCell.reuseIdentifier)
     }
 }
 
