@@ -8,7 +8,15 @@
 
 import UIKit
 
-class DustInfoCell: UITableViewCell {
+protocol ReusableView: class { }
+
+extension ReusableView where Self: UIView {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+}
+
+final class DustInfoCell: UITableViewCell, ReusableView {
     let dustValueBar: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
