@@ -12,4 +12,13 @@ const init=()=>{
     decideStatus(dustData,dustCriteria)
 }
 
+const checkApi =()=>{
+    fetch('/api/_hcheck').then((response)=>{
+        return response.json()
+    }).then((data)=>{
+        document.querySelector('.text').innerHTML=data;
+    });    
+}
+
+document.querySelector('.test button').addEventListener('click',checkApi)
 init();
