@@ -31,26 +31,32 @@ extension UIColor {
 
 extension UIColor {
     enum BlueGradient {
-        static let blueColor = UIColor(rgb: 0x3D85DD)!
+        static let blueColor = UIColor.blueColor
         static let skyBlueColor = UIColor(rgb: 0x77A2D5)!
-        static let whiteColor = UIColor(rgb: 0xFFFFFF)!
+        static let whiteColor = UIColor.whiteColor
     }
     
     enum GreenGradient {
-        static let greenColor = UIColor(rgb: 0x23BA46)!
+        static let greenColor = UIColor.greenColor
         static let paleGreenColor = UIColor(rgb: 0x57E6B5)!
-        static let whiteColor = UIColor(rgb: 0xFFFFFF)!
+        static let whiteColor = UIColor.whiteColor
     }
     
     enum OrangeGradient {
-        static let orangeColor = UIColor(rgb: 0xFF8900)!
+        static let orangeColor = UIColor.orangeColor
         static let paleOrangeColor = UIColor(rgb: 0xEAD89E)!
-        static let whiteColor = UIColor(rgb: 0xFFFFFF)!
+        static let whiteColor = UIColor.whiteColor
     }
     
     enum RedGradient {
-        static let redColor = UIColor(rgb: 0xC10404)!
+        static let redColor = UIColor.redColor
         static let paleRedColor = UIColor(rgb: 0xD36565)!
-        static let whiteColor = UIColor(rgb: 0xFFFFFF)!
+        static let whiteColor = UIColor.whiteColor
     }
+    
+    static let whiteColor = UIColor(rgb: 0xFFFFFF)!
+    static let blueColor = UIColor(rgb: 0x3D85DD)!
+    static let greenColor = UIColor(rgb: 0x23BA46)!
+    static let orangeColor = UIColor(rgb: 0xFF8900)!
+    static let redColor = UIColor(rgb: 0xC10404)!
 }
