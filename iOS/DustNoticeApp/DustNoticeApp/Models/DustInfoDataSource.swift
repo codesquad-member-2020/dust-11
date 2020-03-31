@@ -12,7 +12,7 @@ final class DustInfoDataSource: NSObject, UITableViewDataSource {
     private let dustInfoViewModels = [DustInfoViewModel]()
     
     enum Quantity {
-        static let numberOfRows = 20
+        static let numberOfRows = 40
     }
 }
 
