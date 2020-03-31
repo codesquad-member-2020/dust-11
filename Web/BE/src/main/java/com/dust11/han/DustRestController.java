@@ -14,24 +14,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/locations")
+@RequestMapping("api")
 @Api(tags = "미세먼지")
 public class DustRestController {
 
   @Value("${api.key}")
   private String key;
 
-  @GetMapping("")
-  @ApiOperation("요청하면 무조건 강남구 측정소에 대한 결과를 반환해요")
-  public String stations() throws IOException {
-    StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getMsrstnList");
-    urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D"); /*Service Key*/
+  @GetMapping("locations/tm")
+  @ApiOperation("요청하면 상현동에 대한 tm,ty 좌표를 반환해요 ")
+  public String tmty() throws IOException {
+    StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getTMStdrCrdnt"); /*URL*/
+    urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+key); /*Service Key*/
     urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
     urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
-    urlBuilder.append("&" + URLEncoder.encode("addr","UTF-8") + "=" + URLEncoder.encode("서울", "UTF-8")); /*주소 이름*/
-    urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("강남구", "UTF-8")); /*측정소 이름*/
-    urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*측정소 이름*/
-
+    urlBuilder.append("&" + URLEncoder.encode("umdName","UTF-8") + "=" + URLEncoder.encode("상현동", "UTF-8")); /*읍면동명*/
+    urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8"));
     URL url = new URL(urlBuilder.toString());
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setRequestMethod("GET");
@@ -50,10 +48,9 @@ public class DustRestController {
     rd.close();
     conn.disconnect();
     return sb.toString();
-
   }
 
-  @GetMapping("/xy")
+  @GetMapping("locations/xy")
   @ApiOperation("요청하면 무조건 특정 tmX, txY 대해 가장 가까운 측정소를 반환해요")
   public String xy() throws IOException {
     StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getNearbyMsrstnList"); /*URL*/
@@ -82,15 +79,51 @@ public class DustRestController {
     return sb.toString();
   }
 
-  @GetMapping("/tm")
-  @ApiOperation("요청하면 상현동에 대한 tm기준 좌표를 반환해요 ")
-  public String dusts() throws IOException {
-    StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getTMStdrCrdnt"); /*URL*/
+
+  @GetMapping("/dust")
+  @ApiOperation("요청하면 강남구 측정소에 대해 하루치 미세먼지 현황에 대해 반환해요 ")
+  public String dust() throws IOException {
+    StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"); /*URL*/
     urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+key); /*Service Key*/
-    urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
+    urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("24", "UTF-8")); /*한 페이지 결과 수*/
     urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
-    urlBuilder.append("&" + URLEncoder.encode("umdName","UTF-8") + "=" + URLEncoder.encode("상현동", "UTF-8")); /*읍면동명*/
+    urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("강남구", "UTF-8")); /*측정소 이름*/
+    urlBuilder.append("&" + URLEncoder.encode("dataTerm","UTF-8") + "=" + URLEncoder.encode("DAILY", "UTF-8")); /*요청 데이터기간 (하루 : DAILY, 한달 : MONTH, 3달 : 3MONTH)*/
     urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8"));
+    urlBuilder.append("&" + URLEncoder.encode("ver","UTF-8") + "=" + URLEncoder.encode("1.3", "UTF-8")); /*버전별 상세 결과 참고문서 참조*/
+
+    URL url = new URL(urlBuilder.toString());
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+    conn.setRequestMethod("GET");
+    conn.setRequestProperty("Content-type", "application/json");
+    BufferedReader rd;
+    if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+      rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    } else {
+      rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+    }
+    StringBuilder sb = new StringBuilder();
+    String line;
+    while ((line = rd.readLine()) != null) {
+      sb.append(line);
+    }
+    rd.close();
+    conn.disconnect();
+    return sb.toString();
+  }
+
+  @GetMapping("/pm10")
+  @ApiOperation("요청하면 2020-03-31 기준인, PM10에 대한 대기오염정보를 반환해요 ")
+  public String pm10Animations() throws IOException {
+    StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth"); /*URL*/
+    urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+key); /*Service Key*/
+    urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
+    urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
+    urlBuilder.append("&" + URLEncoder.encode("searchDate","UTF-8") + "=" + URLEncoder.encode("2020-03-31", "UTF-8")); /*측정소 이름*/
+    urlBuilder.append("&" + URLEncoder.encode("InformCode","UTF-8") + "=" + URLEncoder.encode("PM10", "UTF-8")); /*요청 데이터기간 (하루 : DAILY, 한달 : MONTH, 3달 : 3MONTH)*/
+    urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8"));
+    urlBuilder.append("&" + URLEncoder.encode("ver","UTF-8") + "=" + URLEncoder.encode("1.1", "UTF-8")); /*버전별 상세 결과 참고문서 참조*/
+
     URL url = new URL(urlBuilder.toString());
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setRequestMethod("GET");
