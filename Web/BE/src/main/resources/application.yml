@@ -20,3 +20,5 @@ logging:
 
 api:
   key: vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D
+  url:
+    basic: http://openapi.airkorea.or.kr/openapi/services/rest
