@@ -18,50 +18,47 @@ enum DummyData {
     
     enum DummyDustViewModels {
         static let goods: [DustInfoViewModel] = {
-            var models = [DustInfoViewModel]()
+            var viewModels = [DustInfoViewModel]()
             for _ in 0 ..< DustInfoDataSource.Quantity.numberOfRows / 4 {
-                models.append(DustInfoViewModel(dustInfo: DummyDust.good))
+                viewModels.append(DustInfoViewModel(dustInfo: DummyDust.good))
             }
-            return models
+            return viewModels
         }()
         static let usuals: [DustInfoViewModel] = {
-            var models = [DustInfoViewModel]()
+            var viewModels = [DustInfoViewModel]()
             for _ in 0 ..< DustInfoDataSource.Quantity.numberOfRows / 4 {
-                models.append(DustInfoViewModel(dustInfo: DummyDust.usual))
+                viewModels.append(DustInfoViewModel(dustInfo: DummyDust.usual))
             }
-            return models
+            return viewModels
         }()
         static let bads: [DustInfoViewModel] = {
-            var models = [DustInfoViewModel]()
+            var viewModels = [DustInfoViewModel]()
             for _ in 0 ..< DustInfoDataSource.Quantity.numberOfRows / 4 {
-                models.append(DustInfoViewModel(dustInfo: DummyDust.bad))
+                viewModels.append(DustInfoViewModel(dustInfo: DummyDust.bad))
             }
-            return models
+            return viewModels
         }()
         static let veryBads: [DustInfoViewModel] = {
-            var models = [DustInfoViewModel]()
+            var viewModels = [DustInfoViewModel]()
             for _ in 0 ..< DustInfoDataSource.Quantity.numberOfRows / 4 {
-                models.append(DustInfoViewModel(dustInfo: DummyDust.veryBad))
+                viewModels.append(DustInfoViewModel(dustInfo: DummyDust.veryBad))
             }
-            return models
+            return viewModels
+        }()
+        
+        static let max: [DustInfoViewModel] = {
+            var viewModels = [DustInfoViewModel]()
+            viewModels.append(contentsOf: goods)
+            viewModels.append(contentsOf: usuals)
+            viewModels.append(contentsOf: bads)
+            viewModels.append(contentsOf: veryBads)
+            return viewModels
         }()
     }
 }
 
 final class DustInfoDataSource: NSObject, UITableViewDataSource {
-    private let dustInfoViewModels: [DustInfoViewModel] = {
-        var viewModels = [DustInfoViewModel]()
-        viewModels.append(contentsOf: DummyData.DummyDustViewModels.goods)
-        viewModels.append(contentsOf: DummyData.DummyDustViewModels.usuals)
-        viewModels.append(contentsOf: DummyData.DummyDustViewModels.bads)
-        viewModels.append(contentsOf: DummyData.DummyDustViewModels.veryBads)
-        return viewModels
-    }()
-    
-    func cellViewModelForRow(at index: Int) -> DustInfoViewModel? {
-        guard index < dustInfoViewModels.count else { return nil }
-        return dustInfoViewModels[index]
-    }
+    let dustInfoViewModels = DustInfoViewModels(dustInfoViewModels: DummyData.DummyDustViewModels.max)
 }
 
 extension DustInfoDataSource {
@@ -79,7 +76,7 @@ extension DustInfoDataSource {
         let index = indexPath.row
         guard index < dustInfoViewModels.count else { return DustInfoCell() }
         
-        dustInfoViewModels[index].bind(dustInfoCell)
+        dustInfoViewModels.bind(at: index, dustInfoCell: dustInfoCell)
         return dustInfoCell
     }
 }

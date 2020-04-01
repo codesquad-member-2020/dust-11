@@ -9,8 +9,8 @@
 import UIKit
 
 final class StatusViewModel {
-    func bind(_ statusView: StatusView, dustInfoViewModel: DustInfoViewModel) {
-        switch dustInfoViewModel.dustGrade {
+    static func bind(_ statusView: StatusView, dustGrade: DustInfoViewModel.DustGrade) {
+        switch dustGrade {
         case .good:
             bindStatus(statusView, status: Status.good)
         case .usual:
@@ -20,11 +20,9 @@ final class StatusViewModel {
         case .veryBad:
             bindStatus(statusView, status: Status.veryBad)
         }
-        statusView.measureLabel.text = String("\(dustInfoViewModel.dustValue) 𝜇g/m3")
-        statusView.dateLabel.text = dustInfoViewModel.measureDateString
     }
     
-    private func bindStatus(_ statusView: StatusView, status: Status) {
+    private static func bindStatus(_ statusView: StatusView, status: Status) {
         statusView.gradientLayer.colors = status.rawValue.gradientColors
         statusView.emogiView.image = status.rawValue.emojiImage
         statusView.statusLabel.text = status.rawValue.statusLabelText

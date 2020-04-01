@@ -25,6 +25,7 @@
 		5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */; };
 		5A64F6CF2433316D00A1C8FF /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */; };
 		5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */; };
+		5A64F6E02434E66A00A1C8FF /* DustInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtension.swift; sourceTree = "<group>"; };
 		5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoDelegate.swift; sourceTree = "<group>"; };
+		5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoViewModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */,
+				5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */,
 				5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */,
 			);
 			path = ViewModels;
@@ -339,6 +342,7 @@
 				5A4A9D3B2431CF7B00354ABC /* StationViewController.swift in Sources */,
 				5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */,
 				5A0CBCC92432F1A1003B9774 /* DustInfoCell.swift in Sources */,
+				5A64F6E02434E66A00A1C8FF /* DustInfoViewModels.swift in Sources */,
 				5A64F6CB24332F5C00A1C8FF /* UIColorExtension.swift in Sources */,
 				5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */,
 				5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */,
