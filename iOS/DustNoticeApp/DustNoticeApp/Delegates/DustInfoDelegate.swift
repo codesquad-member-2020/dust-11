@@ -9,7 +9,7 @@
 import UIKit
 
 final class DustInfoDelegate: NSObject, UITableViewDelegate {
-    var statusView: StatusView?
+    weak var statusView: StatusView?
     private let statusViewModel = StatusViewModel()
     private var willDisplayIndex = 0
     private var endDisplayIndex = 0
