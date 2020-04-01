@@ -28,31 +28,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("api")
-@Api(tags = "미세먼지")
+@RequestMapping("api/dust")
+@Api(tags = "미세먼지 조회")
 public class DustRestController {
 
   private final Logger logger = LoggerFactory.getLogger(DustRestController.class);
   private final RestTemplate restTemplate;
   private final Gson gson;
 
-  @Value("${api.key}")
+  @Value("${api.dust.key}")
   private String key;
 
-  @Value("${api.url.basic}")
-  private String basicURL;
-
+  @Value("${api.dust.url}")
+  private String apiUrl;
 
   public DustRestController(RestTemplate restTemplate, Gson gson) {
     this.restTemplate = restTemplate;
     this.gson = gson;
   }
 
-  @GetMapping("dust/{location}")
-  @ApiOperation("location(읍면동) 에 대한 24시간 미세먼지 현황 반환")
-  public String get(@PathVariable(value = "location") @ApiParam(value = "예시 : 상현동") String umdName)
+  @GetMapping("{region}")
+  @ApiOperation("region(읍면동) 에 대한 24시간 미세먼지 현황 반환")
+  public String get(@PathVariable(value = "region") @ApiParam(value = "예시 : 상현동") String umdName)
       throws IOException {
-    StringBuilder url = new StringBuilder(basicURL + "/MsrstnInfoInqireSvc/getTMStdrCrdnt");
+    StringBuilder url = new StringBuilder(apiUrl + "/MsrstnInfoInqireSvc/getTMStdrCrdnt");
     url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
     url.append("&").append(URLEncoder.encode("numOfRows", "UTF-8")).append("=")
         .append(URLEncoder.encode("10", "UTF-8"));
@@ -75,8 +74,8 @@ public class DustRestController {
     return getTmx(tmXYRequest.getTmX(), tmXYRequest.getTmY());
   }
 
-  private String getTmx(String tmX, String tmY) throws IOException {
-    StringBuilder url = new StringBuilder(basicURL + "/MsrstnInfoInqireSvc/getNearbyMsrstnList");
+  public String getTmx(String tmX, String tmY) throws IOException {
+    StringBuilder url = new StringBuilder(apiUrl + "/MsrstnInfoInqireSvc/getNearbyMsrstnList");
     url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
     url.append("&").append(URLEncoder.encode("tmX", "UTF-8")).append("=")
         .append(URLEncoder.encode(tmX, "UTF-8"));
@@ -101,7 +100,7 @@ public class DustRestController {
 
   private String dust(String stationName) throws IOException {
     StringBuilder url = new StringBuilder(
-        basicURL + "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
+        apiUrl + "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
     url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
     url.append("&").append(URLEncoder.encode("numOfRows", "UTF-8")).append("=")
         .append(URLEncoder.encode("24", "UTF-8"));
