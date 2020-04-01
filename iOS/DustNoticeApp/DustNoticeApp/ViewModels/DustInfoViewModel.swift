@@ -10,7 +10,11 @@ import UIKit
 
 final class DustInfoViewModel {
     private let dustInfo: DustInfo
-    private let calendar = Calendar(identifier: .gregorian)
+    private let calendar: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "ko_KR")
+        return calendar
+    }()
     
     init(dustInfo: DustInfo) {
         self.dustInfo = dustInfo
@@ -53,4 +57,30 @@ final class DustInfoViewModel {
             return UIColor.redColor
         }
     }
+    
+    enum DayDifference: Int, CustomStringConvertible {
+        case yesterday = 1
+        case today = 0
+        
+        var description: String {
+            switch self {
+            case .yesterday:
+                return "어제"
+            case .today:
+                return "오늘"
+            }
+        }
+    }
+    
+    var measureDateString: String? {
+        let today = calendar.dateComponents([.day], from: Date())
+        let components = calendar.dateComponents([.day,.hour,.minute], from: dustInfo.measureDate)
+        guard let dayOfToday = today.day else { return nil }
+        guard let measureDay = components.day,
+            let measureHour = components.hour,
+            let measuerMinute = components.minute else { return nil }
+        guard let dayDifference = DayDifference(rawValue: dayOfToday - measureDay) else { return nil }
+        return "\(dayDifference.description) \(measureHour):\(measuerMinute)"
+    }
+    
 }
