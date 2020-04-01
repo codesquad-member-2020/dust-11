@@ -19,8 +19,7 @@ final class DustInfoViewModel {
     func configure(_ dustInfoCell: DustInfoCell) {
         dustInfoCell.dustValueLabel.text = dustValueString
         dustInfoCell.dustValueBar.backgroundColor = backgroundColor
-        guard let barWidthConstraintLayout = dustInfoCell.barWidthConstraintLayout else { return }
-        barWidthConstraintLayout.constant = CGFloat(dustValue)
+        dustInfoCell.setBarWitdhConstraint(constant: CGFloat(dustValue))
     }
     
     var dustValue: UInt {
