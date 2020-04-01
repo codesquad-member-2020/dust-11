@@ -20,7 +20,7 @@ final class DustInfoViewModel {
         self.dustInfo = dustInfo
     }
     
-    func configure(_ dustInfoCell: DustInfoCell) {
+    func bind(_ dustInfoCell: DustInfoCell) {
         dustInfoCell.dustValueLabel.text = dustValueString
         dustInfoCell.dustValueBar.backgroundColor = backgroundColor
         dustInfoCell.setBarWitdhConstraint(constant: CGFloat(dustValue))
@@ -82,5 +82,4 @@ final class DustInfoViewModel {
         guard let dayDifference = DayDifference(rawValue: dayOfToday - measureDay) else { return nil }
         return "\(dayDifference.description) \(measureHour):\(measuerMinute)"
     }
-    
 }

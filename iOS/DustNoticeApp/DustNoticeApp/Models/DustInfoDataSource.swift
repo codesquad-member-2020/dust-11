@@ -79,7 +79,7 @@ extension DustInfoDataSource {
         let index = indexPath.row
         guard index < dustInfoViewModels.count else { return DustInfoCell() }
         
-        dustInfoViewModels[index].configure(dustInfoCell)
+        dustInfoViewModels[index].bind(dustInfoCell)
         return dustInfoCell
     }
 }

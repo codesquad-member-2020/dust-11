@@ -21,15 +21,15 @@ final class StatusView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
+        configure()
     }
     
-    private func setup() {
+    private func configure() {
         gradientLayer.frame = bounds
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
