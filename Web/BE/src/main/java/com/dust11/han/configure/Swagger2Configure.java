@@ -16,7 +16,7 @@ public class Swagger2Configure {
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.basePackage("com.dust11.han"))
+        .apis(RequestHandlerSelectors.basePackage("com.dust11.han.controller"))
         .paths(PathSelectors.ant("/api/**"))
         .build();
   }
