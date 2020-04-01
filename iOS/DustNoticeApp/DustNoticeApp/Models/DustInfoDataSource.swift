@@ -50,12 +50,12 @@ enum DummyData {
 
 final class DustInfoDataSource: NSObject, UITableViewDataSource {
     private let dustInfoViewModels: [DustInfoViewModel] = {
-        var models = [DustInfoViewModel]()
-        models.append(contentsOf: DummyData.DummyDustViewModels.goods)
-        models.append(contentsOf: DummyData.DummyDustViewModels.usuals)
-        models.append(contentsOf: DummyData.DummyDustViewModels.bads)
-        models.append(contentsOf: DummyData.DummyDustViewModels.veryBads)
-        return models
+        var viewModels = [DustInfoViewModel]()
+        viewModels.append(contentsOf: DummyData.DummyDustViewModels.goods)
+        viewModels.append(contentsOf: DummyData.DummyDustViewModels.usuals)
+        viewModels.append(contentsOf: DummyData.DummyDustViewModels.bads)
+        viewModels.append(contentsOf: DummyData.DummyDustViewModels.veryBads)
+        return viewModels
     }()
     
     func cellViewModelForRow(at index: Int) -> DustInfoViewModel? {
