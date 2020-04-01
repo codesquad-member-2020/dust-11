@@ -21,6 +21,7 @@ final class StatusViewModel {
             bind(statusView, status: Status.veryBad)
         }
         statusView.measureLabel.text = String("\(dustInfoViewModel.dustValue) 𝜇g/m3")
+        statusView.dateLabel.text = dustInfoViewModel.measureDateString
     }
     
     private func bind(_ statusView: StatusView, status: Status) {
