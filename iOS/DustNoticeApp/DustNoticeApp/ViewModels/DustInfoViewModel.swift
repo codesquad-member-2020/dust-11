@@ -23,10 +23,19 @@ final class DustInfoViewModel {
     func bind(_ dustInfoCell: DustInfoCell) {
         dustInfoCell.dustValueLabel.text = dustValueString
         dustInfoCell.dustValueBar.backgroundColor = backgroundColor
-        dustInfoCell.setBarWitdhConstraint(constant: CGFloat(dustValue))
+        dustInfoCell.setBarWitdhConstraint(multiplier: multiplier())
     }
     
-    var dustValue: UInt {
+    private func multiplier() -> CGFloat {
+        let maxPollutionValue = 200.0
+        if dustValue < maxPollutionValue {
+            return CGFloat(dustValue / maxPollutionValue)
+        } else {
+            return 1
+        }
+    }
+    
+    var dustValue: Double {
         return dustInfo.dustValue
     }
     
