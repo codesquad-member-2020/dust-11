@@ -36,8 +36,14 @@ final class StationViewController: UIViewController {
         DustInfoDecoder.decode(from: "\(NetworkManager.EndPoints.dustURL)\(subLocality)",
         with: NetworkManager()) { station in
             guard let station = station else { return }
-            
+            DispatchQueue.main.async {
+                self.configureStatusView(station.stationName)
+            }
         }
+    }
+    
+    private func configureStatusView(_ stationName: String) {
+        statusView.stationLabel.text = "\(stationName) 측정소 기준"
     }
     
     private func configureDustInfoDelegate() {
