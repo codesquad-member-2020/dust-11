@@ -19,8 +19,20 @@ final class StationViewController: UIViewController {
     private let locationManager = LocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureObserver()
         configureDustInfoDelegate()
         configureDustInfoTableView()
+    }
+    
+    private func configureObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(foo),
+                                               name: LocationManager.Notification.subLocalityDidChange,
+                                               object: locationManager)
+    }
+    
+    @objc private func foo() {
+        
     }
     
     private func configureDustInfoDelegate() {
