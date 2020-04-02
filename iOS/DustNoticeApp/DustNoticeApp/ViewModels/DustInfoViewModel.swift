@@ -20,13 +20,29 @@ final class DustInfoViewModel {
         self.dustInfo = dustInfo
     }
     
-    func configure(_ dustInfoCell: DustInfoCell) {
+    func bind(dustInfoCell: DustInfoCell) {
         dustInfoCell.dustValueLabel.text = dustValueString
         dustInfoCell.dustValueBar.backgroundColor = backgroundColor
-        dustInfoCell.setBarWitdhConstraint(constant: CGFloat(dustValue))
+        dustInfoCell.setBarWitdhConstraint(multiplier: multiplier())
     }
     
-    var dustValue: UInt {
+    func bind(statusView: StatusView) {
+        statusView.measureLabel.text = String("\(dustValue) 𝜇g/m3")
+        statusView.dateLabel.text = measureDateString
+        StatusViewModel.bind(statusView, dustGrade: dustGrade)
+    }
+    
+    private func multiplier() -> CGFloat {
+        let dustValue = Double(self.dustValue)
+        let maxPollutionValue = 200.0
+        if dustValue < maxPollutionValue {
+            return CGFloat(dustValue / maxPollutionValue)
+        } else {
+            return 1
+        }
+    }
+    
+    private var dustValue: UInt {
         return dustInfo.dustValue
     }
     
@@ -41,7 +57,7 @@ final class DustInfoViewModel {
         case veryBad
     }
     
-    var dustGrade: DustGrade {
+    private var dustGrade: DustGrade {
         return DustGrade(rawValue: dustInfo.dustGrade) ?? DustGrade.good
     }
     
@@ -72,7 +88,7 @@ final class DustInfoViewModel {
         }
     }
     
-    var measureDateString: String? {
+    private var measureDateString: String? {
         let today = calendar.dateComponents([.day], from: Date())
         let components = calendar.dateComponents([.day,.hour,.minute], from: dustInfo.measureDate)
         guard let dayOfToday = today.day else { return nil }
@@ -82,5 +98,4 @@ final class DustInfoViewModel {
         guard let dayDifference = DayDifference(rawValue: dayOfToday - measureDay) else { return nil }
         return "\(dayDifference.description) \(measureHour):\(measuerMinute)"
     }
-    
 }

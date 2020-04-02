@@ -16,18 +16,18 @@ final class StationViewController: UIViewController {
     //MARK:- Internal Property
     private let dustInfoDataSource = DustInfoDataSource()
     private let dustInfoDelegate = DustInfoDelegate()
-    
+    private let locationManager = LocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDustInfoDelegate()
-        setupDustInfoTableView()
+        configureDustInfoDelegate()
+        configureDustInfoTableView()
     }
     
-    private func setupDustInfoDelegate() {
+    private func configureDustInfoDelegate() {
         dustInfoDelegate.statusView = statusView
     }
     
-    private func setupDustInfoTableView() {
+    private func configureDustInfoTableView() {
         dustInfoTableView.dataSource = dustInfoDataSource
         dustInfoTableView.delegate = dustInfoDelegate
         dustInfoTableView.register(DustInfoCell.self,

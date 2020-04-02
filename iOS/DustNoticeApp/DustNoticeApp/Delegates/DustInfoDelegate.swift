@@ -9,10 +9,7 @@
 import UIKit
 
 final class DustInfoDelegate: NSObject, UITableViewDelegate {
-    var statusView: StatusView?
-    private let statusViewModel = StatusViewModel()
-    private var willDisplayIndex = 0
-    private var endDisplayIndex = 0
+    weak var statusView: StatusView?
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let dustInfoTableView = scrollView as? UITableView else { return }
@@ -20,8 +17,8 @@ final class DustInfoDelegate: NSObject, UITableViewDelegate {
             let firstIndexPath = indexPathsForVisibleRows.first else { return }
         guard let statusView = statusView else { return }
         guard let dustInfoDataSource = dustInfoTableView.dataSource as? DustInfoDataSource else { return }
-        guard let dustInfoViewModel = dustInfoDataSource.cellViewModelForRow(at: firstIndexPath.row) else { return }
-        statusViewModel.configure(statusView, dustInfoViewModel: dustInfoViewModel)
+        
+        dustInfoDataSource.dustInfoViewModels.bind(at: firstIndexPath.row, statusView: statusView)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -30,7 +27,7 @@ final class DustInfoDelegate: NSObject, UITableViewDelegate {
         guard firstRow == row else { return }
         guard let statusView = statusView else { return }
         guard let dustInfoDataSource = tableView.dataSource as? DustInfoDataSource else { return }
-        guard let dustInfoViewModel = dustInfoDataSource.cellViewModelForRow(at: indexPath.row) else { return }
-        statusViewModel.configure(statusView, dustInfoViewModel: dustInfoViewModel)
+        
+        dustInfoDataSource.dustInfoViewModels.bind(at: firstRow, statusView: statusView)
     }
 }

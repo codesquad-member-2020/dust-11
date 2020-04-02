@@ -30,38 +30,33 @@ final class DustInfoCell: UITableViewCell, ReusableView {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
+        configureDustValueBar()
+        configureDustValueLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
+        configureDustValueBar()
+        configureDustValueLabel()
     }
-    
-    private func setup() {
-        setDustValueBar()
-        setDustValueLabel()
-    }
-    
-    private var barWidthConstraintLayout: NSLayoutConstraint?
-    private func setDustValueBar() {
+
+    private func configureDustValueBar() {
         addSubview(dustValueBar)
         dustValueBar.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         dustValueBar.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         dustValueBar.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dustValueBar.heightAnchor.constraint(equalTo: self.heightAnchor,
                                              multiplier: 1).isActive = true
-        barWidthConstraintLayout = dustValueBar.widthAnchor.constraint(equalToConstant: 0)
-        guard let barWidthConstraintLayout = barWidthConstraintLayout else { return }
-        barWidthConstraintLayout.isActive = true
+    }
+
+    private var barWidthConstraintLayout: NSLayoutConstraint?
+    func setBarWitdhConstraint(multiplier: CGFloat) {
+        barWidthConstraintLayout = NSLayoutConstraint(item: dustValueBar, attribute: .width, relatedBy: .equal,
+                                                      toItem: self, attribute: .width, multiplier: multiplier, constant: 0)
+        barWidthConstraintLayout?.isActive = true
     }
     
-    func setBarWitdhConstraint(constant: CGFloat) {
-        guard let barWidthConstraintLayout = barWidthConstraintLayout else { return }
-        barWidthConstraintLayout.constant = constant * 2 
-    }
-    
-    private func setDustValueLabel() {
+    private func configureDustValueLabel() {
         addSubview(dustValueLabel)
         dustValueLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         dustValueLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -82,7 +77,7 @@ final class DustInfoCell: UITableViewCell, ReusableView {
         dustValueBar.backgroundColor = nil
         dustValueLabel.text = nil
         guard let barWidthConstraintLayout = barWidthConstraintLayout else { return }
-        barWidthConstraintLayout.constant = 0
+        removeConstraint(barWidthConstraintLayout)
     }
 }
 
