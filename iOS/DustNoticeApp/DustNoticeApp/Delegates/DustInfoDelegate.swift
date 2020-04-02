@@ -30,4 +30,11 @@ final class DustInfoDelegate: NSObject, UITableViewDelegate {
         
         dustInfoDataSource.dustInfoViewModels.bind(at: firstRow, statusView: statusView)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt: IndexPath) {
+        guard let statusView = statusView else { return }
+        guard let dustInfoDataSource = tableView.dataSource as? DustInfoDataSource else { return }
+        
+        dustInfoDataSource.dustInfoViewModels.bind(at: didSelectRowAt.row, statusView: statusView)
+    }
 }
