@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct DustInfoDecoder {
     static func decode(from string: String, with manager: NetworkManager, completionHandler: @escaping (Station?) -> ()) {
         manager.getResource(from: string) { (data, error) in
