@@ -33,6 +33,7 @@ final class DustInfoViewModel {
     }
     
     private func multiplier() -> CGFloat {
+        let dustValue = Double(self.dustValue)
         let maxPollutionValue = 200.0
         if dustValue < maxPollutionValue {
             return CGFloat(dustValue / maxPollutionValue)
@@ -41,7 +42,7 @@ final class DustInfoViewModel {
         }
     }
     
-    private var dustValue: Double {
+    private var dustValue: UInt {
         return dustInfo.dustValue
     }
     

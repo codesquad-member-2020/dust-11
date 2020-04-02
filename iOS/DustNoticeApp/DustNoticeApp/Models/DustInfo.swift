@@ -9,7 +9,7 @@
 import Foundation
 
 struct DustInfo: Codable {
-    let dustValue: Double
+    let dustValue: UInt
     let dustGrade: UInt
     let measureDate: Date
     
