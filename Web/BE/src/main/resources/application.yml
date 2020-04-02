@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem://localhost/~/dust_server;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
+      driver-class-name: org.h2.Driver
+      data-username: sa
+      data-password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+logging:
+  pattern:
+    console: "%date  %highlight(%-5level) %cyan(%-40.40logger{40}) : %msg%n"
+  level:
+    org.springframework.web: error
+    com.dust11.han: debug
+    sql: debug
+
+api:
+  dust:
+    key: vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D
+    url: http://openapi.airkorea.or.kr/openapi/services/rest
+  location:
+    key: c7c15e7fab56736f77328d1f1f633b8d
+    url: https://dapi.kakao.com/v2/local/geo/coord2address.json
