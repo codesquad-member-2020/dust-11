@@ -1,4 +1,4 @@
-package com.dust11.han;
+package com.dust11.han.controller;
 
 import com.dust11.han.api.ApiResult;
 import io.swagger.annotations.Api;

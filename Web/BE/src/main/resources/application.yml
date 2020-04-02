@@ -19,4 +19,9 @@ logging:
     sql: debug
 
 api:
-  key: vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D
+  dust:
+    key: vYe%2FBkQ%2BrMZmEqpzyV854XJB%2BJYAxDBUrhz5a24JFfvUlpeN%2FyNHxQhCcJuXpJ8AiaqhrGb3jCeVDL0ZiwO33g%3D%3D
+    url: http://openapi.airkorea.or.kr/openapi/services/rest
+  location:
+    key: c7c15e7fab56736f77328d1f1f633b8d
+    url: https://dapi.kakao.com/v2/local/geo/coord2address.json
