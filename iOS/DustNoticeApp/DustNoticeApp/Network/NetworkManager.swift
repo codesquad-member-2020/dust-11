@@ -13,8 +13,8 @@ struct NetworkManager {
         static let dustURL = "http://52.7.82.194:8080/api/dust/"
     }
     
-    func getResource(from: String, resultHandler: @escaping (Data?, Error?)->()) {
-        guard let url = URL(string: from) else { return }
+    func getResource(from string: String, resultHandler: @escaping (Data?, Error?)->()) {
+        guard let url = URL(string: string) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             resultHandler(data, error)
         }.resume()

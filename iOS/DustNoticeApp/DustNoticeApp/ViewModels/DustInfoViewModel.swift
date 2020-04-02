@@ -28,7 +28,7 @@ final class DustInfoViewModel {
     
     func bind(statusView: StatusView) {
         statusView.measureLabel.text = String("\(dustValueString) 𝜇g/m3")
-//        statusView.dateLabel.text = measureDateString
+        statusView.dateLabel.text = measureDateString
         StatusViewModel.bind(statusView, dustGrade: dustGrade)
     }
     
@@ -87,15 +87,32 @@ final class DustInfoViewModel {
             }
         }
     }
+    private var measureDateString: String? {
+        let today = calendar.dateComponents([.day], from: Date())
+        guard let dayOfToday = today.day else { return nil }
+        
+        guard let date = date(from: dustInfo.dataTime) else { return nil }
+        let components = calendar.dateComponents([.day,.hour,.minute], from: date)
+        guard let measureDay = components.day,
+            let measureHour = components.hour,
+            let measuerMinute = components.minute else { return nil }
+        
+        guard let dayDifference = DayDifference(rawValue: dayOfToday - measureDay) else { return nil }
+        return "\(dayDifference.description) \(measureHour):\(String(format: "%02d", measuerMinute))"
+    }
     
-//    private var measureDateString: String? {
-//        let today = calendar.dateComponents([.day], from: Date())
-//        let components = calendar.dateComponents([.day,.hour,.minute], from: dustInfo.measureDate)
-//        guard let dayOfToday = today.day else { return nil }
-//        guard let measureDay = components.day,
-//            let measureHour = components.hour,
-//            let measuerMinute = components.minute else { return nil }
-//        guard let dayDifference = DayDifference(rawValue: dayOfToday - measureDay) else { return nil }
-//        return "\(dayDifference.description) \(measureHour):\(measuerMinute)"
-//    }
+    private func date(from string: String) -> Date? {
+        guard let date = DateFormatter.dustDateFormatter.date(from: string) else { return nil }
+        return date
+    }
+}
+
+
+extension DateFormatter {
+    static let dustDateFormatter : DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter
+    }()
 }
