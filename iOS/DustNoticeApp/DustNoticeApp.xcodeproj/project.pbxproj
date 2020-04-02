@@ -26,6 +26,7 @@
 		5A64F6CF2433316D00A1C8FF /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */; };
 		5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */; };
 		5A64F6E02434E66A00A1C8FF /* DustInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */; };
+		5A84EB7724359C23006E432F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB7624359C23006E432F /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoDelegate.swift; sourceTree = "<group>"; };
 		5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoViewModels.swift; sourceTree = "<group>"; };
+		5A84EB7624359C23006E432F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		5A4A9D352431CF7B00354ABC /* DustNoticeApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A84EB7524359C12006E432F /* Network */,
 				5A64F6C924332F4300A1C8FF /* Utils */,
 				5A0CBCC72432F17C003B9774 /* Views */,
 				5A0CBCC42432EE60003B9774 /* ViewModels */,
@@ -199,6 +202,14 @@
 				5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		5A84EB7524359C12006E432F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5A84EB7624359C23006E432F /* LocationManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +345,7 @@
 			files = (
 				5A4A9D3D2431CF7B00354ABC /* MapViewController.swift in Sources */,
 				5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */,
+				5A84EB7724359C23006E432F /* LocationManager.swift in Sources */,
 				5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */,
 				5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */,
 				5A0CBCCB2432FF6E003B9774 /* DustInfoDataSource.swift in Sources */,

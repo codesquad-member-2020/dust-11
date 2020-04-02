@@ -16,7 +16,7 @@ final class StationViewController: UIViewController {
     //MARK:- Internal Property
     private let dustInfoDataSource = DustInfoDataSource()
     private let dustInfoDelegate = DustInfoDelegate()
-    
+    private let locationManager = LocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDustInfoDelegate()
