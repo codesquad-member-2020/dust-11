@@ -11,7 +11,7 @@ import Foundation
 final class DustInfoViewModels {
     private let dustInfoViewModels: [DustInfoViewModel]
     
-    init(dustInfoViewModels: [DustInfoViewModel]) {
+    init(_ dustInfoViewModels: [DustInfoViewModel]) {
         self.dustInfoViewModels = dustInfoViewModels
     }
     

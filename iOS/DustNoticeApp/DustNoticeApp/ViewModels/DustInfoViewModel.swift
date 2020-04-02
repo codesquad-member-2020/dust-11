@@ -27,13 +27,13 @@ final class DustInfoViewModel {
     }
     
     func bind(statusView: StatusView) {
-        statusView.measureLabel.text = String("\(dustValue) 𝜇g/m3")
+        statusView.measureLabel.text = String("\(dustValueString) 𝜇g/m3")
         statusView.dateLabel.text = measureDateString
         StatusViewModel.bind(statusView, dustGrade: dustGrade)
     }
     
     private func multiplier() -> CGFloat {
-        let dustValue = Double(self.dustValue)
+        let dustValue = Double(self.dustValueUInt)
         let maxPollutionValue = 200.0
         if dustValue < maxPollutionValue {
             return CGFloat(dustValue / maxPollutionValue)
@@ -41,13 +41,13 @@ final class DustInfoViewModel {
             return 1
         }
     }
-    
-    private var dustValue: UInt {
-        return dustInfo.dustValue
+
+    private var dustValueUInt: UInt {
+        return UInt(dustInfo.pm10Value) ?? 1
     }
     
     private var dustValueString: String {
-        return String(dustValue)
+        return dustInfo.pm10Value
     }
     
     enum DustGrade: UInt {
@@ -58,7 +58,7 @@ final class DustInfoViewModel {
     }
     
     private var dustGrade: DustGrade {
-        return DustGrade(rawValue: dustInfo.dustGrade) ?? DustGrade.good
+        return DustGrade(rawValue: UInt(dustInfo.pm10Grade1h) ?? 1) ?? DustGrade.good
     }
     
     private var backgroundColor: UIColor {
@@ -87,15 +87,32 @@ final class DustInfoViewModel {
             }
         }
     }
-    
     private var measureDateString: String? {
         let today = calendar.dateComponents([.day], from: Date())
-        let components = calendar.dateComponents([.day,.hour,.minute], from: dustInfo.measureDate)
         guard let dayOfToday = today.day else { return nil }
+        
+        guard let date = date(from: dustInfo.dataTime) else { return nil }
+        let components = calendar.dateComponents([.day,.hour,.minute], from: date)
         guard let measureDay = components.day,
             let measureHour = components.hour,
             let measuerMinute = components.minute else { return nil }
+        
         guard let dayDifference = DayDifference(rawValue: dayOfToday - measureDay) else { return nil }
-        return "\(dayDifference.description) \(measureHour):\(measuerMinute)"
+        return "\(dayDifference.description) \(measureHour):\(String(format: "%02d", measuerMinute))"
     }
+    
+    private func date(from string: String) -> Date? {
+        guard let date = DateFormatter.dustDateFormatter.date(from: string) else { return nil }
+        return date
+    }
+}
+
+
+extension DateFormatter {
+    static let dustDateFormatter : DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter
+    }()
 }

@@ -10,8 +10,11 @@ import Foundation
 import CoreLocation
 
 final class LocationManager: NSObject {
-    private let locationManager = CLLocationManager()
+    enum Notification {
+        static let subLocalityDidChange = Foundation.Notification.Name("subLocalityDidChange")
+    }
     private(set) var subLocality: String?
+    private let locationManager = CLLocationManager()
     
     override init() {
         super.init()
@@ -51,7 +54,9 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let last = locations.last else { return }
         lookUpCurrentLocation(lastLocation: last) { placeMark in
             guard let placeMark = placeMark else { return }
-            self.subLocality = placeMark.subLocality
+            guard self.subLocality == nil else { return }
+            self.subLocality = placeMark.subLocality?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            NotificationCenter.default.post(name: Notification.subLocalityDidChange, object: self)
         }
     }
 }
