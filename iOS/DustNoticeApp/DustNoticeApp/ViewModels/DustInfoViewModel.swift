@@ -27,13 +27,13 @@ final class DustInfoViewModel {
     }
     
     func bind(statusView: StatusView) {
-        statusView.measureLabel.text = String("\(dustGrade) 𝜇g/m3")
+        statusView.measureLabel.text = String("\(dustValueString) 𝜇g/m3")
 //        statusView.dateLabel.text = measureDateString
         StatusViewModel.bind(statusView, dustGrade: dustGrade)
     }
     
     private func multiplier() -> CGFloat {
-        let dustValue = Double(self.dustValue)
+        let dustValue = Double(self.dustValueUInt)
         let maxPollutionValue = 200.0
         if dustValue < maxPollutionValue {
             return CGFloat(dustValue / maxPollutionValue)
@@ -42,7 +42,7 @@ final class DustInfoViewModel {
         }
     }
 
-    private var dustValue: UInt {
+    private var dustValueUInt: UInt {
         return UInt(dustInfo.pm10Value) ?? 1
     }
     
