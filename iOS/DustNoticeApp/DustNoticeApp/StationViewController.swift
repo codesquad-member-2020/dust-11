@@ -26,13 +26,18 @@ final class StationViewController: UIViewController {
     
     private func configureObserver() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(foo),
+                                               selector: #selector(configureDustInfo),
                                                name: LocationManager.Notification.subLocalityDidChange,
                                                object: locationManager)
     }
     
-    @objc private func foo() {
-        
+    @objc private func configureDustInfo() {
+        guard let subLocality = locationManager.subLocality else { return }
+        DustInfoDecoder.decode(from: "\(NetworkManager.EndPoints.dustURL)\(subLocality)",
+        with: NetworkManager()) { station in
+            guard let station = station else { return }
+            
+        }
     }
     
     private func configureDustInfoDelegate() {

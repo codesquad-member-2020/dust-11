@@ -1,0 +1,22 @@
+//
+//  NetworkManager.swift
+//  DustNoticeApp
+//
+//  Created by kimdo2297 on 2020/04/02.
+//  Copyright © 2020 Jason. All rights reserved.
+//
+
+import Foundation
+
+struct NetworkManager {
+    enum EndPoints {
+        static let dustURL = "http://52.7.82.194:8080/api/dust/"
+    }
+    
+    func getResource(from: String, resultHandler: @escaping (Data?, Error?)->()) {
+        guard let url = URL(string: from) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            resultHandler(data, error)
+        }.resume()
+    }
+}

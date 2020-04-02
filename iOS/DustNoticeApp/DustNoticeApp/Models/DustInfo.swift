@@ -9,13 +9,13 @@
 import Foundation
 
 struct DustInfo: Codable {
-    let dustValue: UInt
-    let dustGrade: UInt
-    let measureDate: Date
+    var dataTime: String
+    var pm10Grade1h: String
+    var pm10Value: String
     
-    enum codingkeys: String, CodingKey {
-        case dustValue = "pm10Value"
-        case dustGrade = "pm10Grade"
-        case measureDate = "dataTime"
+    enum CodingKeys: String, CodingKey {
+        case dataTime = "dataTime"
+        case pm10Grade1h = "pm10Grade1h"
+        case pm10Value = "pm10Value"
     }
 }

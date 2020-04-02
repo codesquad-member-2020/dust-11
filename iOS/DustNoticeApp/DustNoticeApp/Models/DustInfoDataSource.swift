@@ -10,10 +10,10 @@ import UIKit
 
 enum DummyData {
     enum DummyDust {
-        static let good = DustInfo(dustValue: 10, dustGrade: 1, measureDate: Date())
-        static let usual = DustInfo(dustValue: 50, dustGrade: 2, measureDate: Date())
-        static let bad = DustInfo(dustValue: 120, dustGrade: 3, measureDate: Date())
-        static let veryBad = DustInfo(dustValue: 200, dustGrade: 4, measureDate: Date())
+        static let good = DustInfo(dataTime: "10", pm10Grade1h: "1", pm10Value: "0")
+        static let usual = DustInfo(dataTime: "50", pm10Grade1h: "2", pm10Value: "0")
+        static let bad = DustInfo(dataTime: "120", pm10Grade1h: "3", pm10Value: "0")
+        static let veryBad = DustInfo(dataTime: "200", pm10Grade1h: "4", pm10Value: "0")
     }
     
     enum DummyDustViewModels {
