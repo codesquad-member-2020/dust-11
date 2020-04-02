@@ -18,3 +18,5 @@
 
 ## 3. 배포 URL
 
+- [swagger-docs](http://52.7.82.194:8080/swagger-ui.html)
+- [Apache2](http://52.7.82.194)
