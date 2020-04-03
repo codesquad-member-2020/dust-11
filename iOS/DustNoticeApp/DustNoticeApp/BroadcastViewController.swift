@@ -23,5 +23,10 @@ final class BroadcastViewController: UIViewController {
     private func configureBroadcastInfo() {
         let date = dateProvider()
         let dateString = DateFormatter.broadcastDateFormatter.string(from: date)
+        DustInfoDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
+        with: NetworkManager()) { broadcast in
+            guard let broadcast = broadcast else { return }
+            
+        }
     }
 }

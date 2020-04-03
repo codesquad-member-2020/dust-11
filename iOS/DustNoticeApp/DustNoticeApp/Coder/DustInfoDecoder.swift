@@ -17,4 +17,13 @@ struct DustInfoDecoder {
             completionHandler(station)
         }
     }
+    
+    static func decodeBroadcast(from string: String, with manager: NetworkManager, completionHandler: @escaping (Broadcast?) -> ()) {
+        manager.getResource(from: string) { (data, error) in
+            guard error == nil else { return }
+            guard let data = data else { return }
+            guard let boradcast = try? JSONDecoder().decode(Broadcast.self, from: data) else { return }
+            completionHandler(boradcast)
+        }
+    }
 }
