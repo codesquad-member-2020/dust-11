@@ -183,7 +183,14 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="o5V-vC-0KH" secondAttribute="height" multiplier="6.9:1" id="zHd-Ks-d1n"/>
                                 </constraints>
-                                <attributedString key="attributedText"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="예보문구 레이블">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
@@ -191,7 +198,15 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rRy-xn-7FK" secondAttribute="height" multiplier="6.9:1" id="Bbq-k7-oYr"/>
                                 </constraints>
-                                <attributedString key="attributedText"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="지역별 등급 레이블">
+                                        <attributes>
+                                            <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="10" name="AppleSDGothicNeo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="840-Tv-EaG">
