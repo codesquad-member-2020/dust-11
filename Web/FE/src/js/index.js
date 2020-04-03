@@ -1,10 +1,7 @@
 import {emojiEl,gradeEl,quantitiyEl,timeEl,stationEl,headerContainer,dustGraphContainer} from './util/elements.js';
 import {getEl,getAll} from './util/selector.js';
 import {getFetch} from './util/fetch.js';
-
-const currentDate =`${new Date().getFullYear()}-${
-    new Date().getMonth()+1 < 10 ? `0${new Date().getMonth()+1}`:new Date().getMonth()+1}-${
-    new Date().getDate()<10 ? `0${new Date().getDate()}`: new Date().getDate()}`
+import {currentDate} from './util/date.js'
 
 const timeUrl ='https://dust11.herokuapp.com/api/_hcheck';
 const imageUrl ='https://dust11.herokuapp.com/api/pm10';
@@ -57,7 +54,6 @@ const calGraphWidth = (dustValue)=>{
 
 const renderGraph=(dustObj)=>{
     const {dustPercentArr,dustValueArr,graphColorArr}=dustObj;
-    console.log(dustObj)
     const graphHTML=dustPercentArr.map((value,index)=>`
     <li class="dust-graph">
         <span class="dust-contents-bar" style="background-color:${graphColorArr[index]}; width:${value}%;"></span>   
@@ -77,7 +73,6 @@ const renderAll= (info)=>{
         graphColorArr
     }=info
     const gradeInfo =chooseGrade(grade); 
-    console.log(gradeInfo,graphColorArr,info)
 
     headerContainer.style.background='linear-gradient(gradeInfo.backgroundColor,#fff)';
     headerContainer.style.backgroundColor=gradeInfo.backgroundColor;
@@ -104,7 +99,6 @@ const init=()=>{
         getFetch(locationUrl)
             .then((response)=>response.json())
             .then((data)=>{
-                console.log(data)
                 const dustPercentArr=data.list.map((data)=>{
                     graphColorArr.push(chooseGrade(data.pm10Grade1h).graphColor)
                     dustValueArr.push(parseInt(data.pm10Value));
