@@ -57,4 +57,12 @@ final class BroadcastViewController: UIViewController {
     private func configureBroadcastViewModel(_ broadcast: Broadcast) {
         broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
     }
+    
+    @IBAction func changeRowSlider(_ sender: UISlider) {
+        let unit = sender.maximumValue / Float(broadcastViewModel.count)
+        let currentValue = sender.value
+        let currentIndex = Int(currentValue / unit)
+        guard currentIndex < broadcastViewModel.count else { return }
+        broadcastImageView.image = broadcastViewModel.broadcastImages[currentIndex]
+    }
 }
