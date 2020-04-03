@@ -14,6 +14,7 @@ final class BroadcastViewController: UIViewController {
     
     //MARK:- Internal Property
     private let dateProvider: () -> Date = Date.init
+    private var broadcastViewModel: BroadcastViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,11 @@ final class BroadcastViewController: UIViewController {
         DustInfoDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
         with: NetworkManager()) { broadcast in
             guard let broadcast = broadcast else { return }
-            
+            self.configureBroadcastViewModel(broadcast)
         }
+    }
+    
+    private func configureBroadcastViewModel(_ broadcast: Broadcast) {
+        broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
     }
 }
