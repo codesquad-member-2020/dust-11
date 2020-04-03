@@ -41,7 +41,7 @@ final class DustInfoViewModel {
             return 1
         }
     }
-
+    
     private var dustValueUInt: UInt {
         return UInt(dustInfo.pm10Value) ?? 1
     }
@@ -102,17 +102,20 @@ final class DustInfoViewModel {
     }
     
     private func date(from string: String) -> Date? {
-        guard let date = DateFormatter.dustDateFormatter.date(from: string) else { return nil }
-        return date
+        if let date = DateFormatter.dustDateFormatter.date(from: string) {
+            return date
+        } else {
+            guard let string = replace24HourCase(from: string) else { return nil }
+            guard let date  = DateFormatter.dustDateFormatter.date(from: string) else { return nil}
+            return date
+        }
     }
-}
-
-
-extension DateFormatter {
-    static let dustDateFormatter : DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        return dateFormatter
-    }()
+    
+    private func replace24HourCase(from string: String) -> String? {
+        var string = string
+        let start = string.index(string.endIndex, offsetBy: -5)
+        let end = string.index(start, offsetBy: 1)
+        string.replaceSubrange(start...end, with: "00")
+        return string
+    }
 }
