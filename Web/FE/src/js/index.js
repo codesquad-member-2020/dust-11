@@ -1,4 +1,4 @@
-import {dustData,dustCriteria,dustStatus,dustImoji} from './data/mockdata.js'
+import {emojiEl,gradeEl,quantitiyEl,timeEl,stationEl,headerContainer,dustGraphContainer} from './util/elements.js';
 import {getEl,getAll} from './util/selector.js';
 import {getFetch} from './util/fetch.js';
 
@@ -11,36 +11,37 @@ const imageUrl ='https://dust11.herokuapp.com/api/pm10';
 const myUrl ='https://dust11.herokuapp.com/api/dust';
 const dateUrl=`https://dust11.herokuapp.com/api/pm10/${currentDate}`
 
-
-
-
-
 const chooseGrade=(grade)=>{
     const dustInfo = {
         emoji: null,
         grade: null,
-        backgroundColor: null
+        backgroundColor: null,
+        graphColor : null
       };
     switch (grade) {
         case '1':
             dustInfo.emoji='😀';
             dustInfo.grade='좋음';
             dustInfo.backgroundColor='#6096D8';
+            dustInfo.graphColor ='#0080FF';
             break;
           case '2':
             dustInfo.emoji='🙂';
             dustInfo.grade='보통';
             dustInfo.backgroundColor='#088A68';
+            dustInfo.graphColor ='#04B404';
             break;
           case '3':
             dustInfo.emoji='😷';
             dustInfo.grade='나쁨';
             dustInfo.backgroundColor='#FAAC58';
+            dustInfo.graphColor ='#FE9A2E';
             break;
           case '4':
             dustInfo.emoji='😱';
             dustInfo.grade='매우 나쁨';
             dustInfo.backgroundColor='#FA5858';
+            dustInfo.graphColor ='#DF0101';
             break;
     }
     return dustInfo
@@ -49,32 +50,45 @@ const chooseGrade=(grade)=>{
 const calGraphWidth = (dustValue)=>{
     const maxValue=200;
     const maxPercent=100;
-    const percent = parseInt((dustCriteria/maxValue)*100);
+    const percent = parseInt((dustValue/maxValue)*100);
     if (percent>=maxPercent) return 100;
     else return percent;
 }
 
-const render= (grade,value,stationName,time)=>{
-    const emojiEl=getEl('.dust-emoji');
-    const gradeEl=getEl('.header-contents h4');
-    const quantitiyEl=getEl('.dust-header-quantity');
-    const timeEl = getEl('.dust-time');
-    const stationEl=getEl('.dust-location');
-    const headerContainer = getEl('#header');
-    const info =chooseGrade(grade);
-    // console.log(info)
-
-    headerContainer.style.backgroundColor=info.backgroundColor;
-    emojiEl.innerHTML=info.emoji;
-    gradeEl.innerHTML=grade;
-    quantitiyEl.innerHTML=`${value}&micro;g/㎥;`;
-    timeEl.innerHTML=`${time}`;
-    stationEl.innerHTML=stationName;
-
+const renderGraph=(dustObj)=>{
+    const {dustPercentArr,dustValueArr,graphColorArr}=dustObj;
+    console.log(dustObj)
+    const graphHTML=dustPercentArr.map((value,index)=>`
+    <li class="dust-graph">
+        <span class="dust-contents-bar" style="background-color:${graphColorArr[index]}; width:${value}%;"></span>   
+        <span class="dust-contents-quantity">${dustValueArr[index]}</span>
+    </li>`).join('');
+    return graphHTML;
 }
 
+const renderAll= (info)=>{
+    const {
+        grade,
+        value,
+        stationName,
+        time,
+        dustPercentArr,
+        dustValueArr,
+        graphColorArr
+    }=info
+    const gradeInfo =chooseGrade(grade); 
+    console.log(gradeInfo,graphColorArr,info)
 
-// '2020-04-01'
+    headerContainer.style.background='linear-gradient(gradeInfo.backgroundColor,#fff)';
+    headerContainer.style.backgroundColor=gradeInfo.backgroundColor;
+    emojiEl.innerHTML=gradeInfo.emoji;
+    gradeEl.innerHTML=gradeInfo.grade;
+    quantitiyEl.innerHTML=`${value}&micro;g/㎥`;
+    timeEl.innerHTML=`${time}`;
+    stationEl.innerHTML=stationName;
+    dustGraphContainer.innerHTML = renderGraph({dustPercentArr,dustValueArr,graphColorArr})
+}
+
 const init=()=>{
     const options ={
         timeout:Infinity,
@@ -85,14 +99,24 @@ const init=()=>{
         const latitude = data.coords.latitude;
         const longitude= data.coords.longitude;
         const locationUrl=`http://52.7.82.194:8080/api/location/${longitude}/${latitude}`
+        const dustValueArr=[];
+        const graphColorArr=[];
         getFetch(locationUrl)
             .then((response)=>response.json())
             .then((data)=>{
-                console.log(data,data.list[0].dataTime.slice(11)); //매 정시의 값을 현재 시각보다 24시간 기준으로 보여준다
+                console.log(data)
+                const dustPercentArr=data.list.map((data)=>{
+                    graphColorArr.push(chooseGrade(data.pm10Grade1h).graphColor)
+                    dustValueArr.push(parseInt(data.pm10Value));
+                    return calGraphWidth(parseInt(data.pm10Value))
+                });
                 const stationName= data.stationName;
-                const {pm10Grade:grade,pm10Value:value,dataTime}=data.list[0];
+                const {pm10Grade1h:grade,pm10Value:value,dataTime}=data.list[0];
                 const time = dataTime.slice(11);
-                render(grade,value,stationName,time);
+                const dustInfo = {
+                    grade,value,stationName,time,dustPercentArr,dustValueArr,graphColorArr
+                }
+                renderAll(dustInfo);
             })
     }
     const handleError=(error)=>{
@@ -101,7 +125,7 @@ const init=()=>{
     navigator.geolocation.getCurrentPosition(handleSuccess,handleError,options);
 }
 
-init();
+window.addEventListener('DOMContentLoaded',init);
 
 
 
