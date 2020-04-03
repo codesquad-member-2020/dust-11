@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dust</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <nav class='nav'>
+                <li><a href="#header">미세먼지</a></li>
+                  <li><a href="">예보</a></li>
+            </nav>
+            <h1 class='header-title'>미세먼지 앱</h1>
+            <div class="header-contents">
+                <span class="dust-emoji">😀</span>
+                <h4>좋음</h4>
+                <div class="dust-status">
+                    <span class="dust-header-quantity"></span>
+                    <span class="dust-time">16:00</span>
+                </div>
+                <div class="dust-location">강남구</div>
+            </div>
+        </div>
+        <div class="dust-contents">
+            <ul class="dust-contents-graph">
+                <li class="dust-graph">
+                    <span class="dust-contents-bar"></span>   
+                    <span class="dust-contents-quantity"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="module" src="./src/js/index.js"></script>
+</body>
+</html>

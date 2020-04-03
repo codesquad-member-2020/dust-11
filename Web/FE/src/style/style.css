@@ -1,0 +1,57 @@
+@import './reset.css';
+
+* {
+    box-sizing: border-box;
+}
+#wrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.nav {
+    margin: 20px 0;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    text-align: center;
+}
+/* header */
+#header {
+    padding: 20px;
+}
+.header-title {
+    padding: 20px;
+    text-align: center;
+}
+.header-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* contents */
+.dust-emoji {
+    font-size: 8rem;
+}
+.dust-graph span {
+    display: inline-block;
+    line-height: 1.5rem;
+    font-size: 18px;
+}
+.dust-graph {
+    position: relative;
+    border-bottom: 1px solid black;
+}
+.dust-contents-bar{
+    width: 100%;
+    height: 20px;
+}
+.dust-graph .dust-contents-quantity {
+    position: absolute;
+    right: 1%;
+}
