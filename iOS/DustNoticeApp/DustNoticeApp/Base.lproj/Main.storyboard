@@ -15,83 +15,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-y6-Rcm">
-                                <rect key="frame" x="95.666666666666686" y="54" width="184" height="48"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="미세먼지 앱">
-                                        <attributes>
-                                            <font key="NSFont" size="40" name="AppleSDGothicNeo-Bold"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face-smile-big" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
-                                <rect key="frame" x="119" y="110" width="137" height="137"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-Ym-aKv" userLabel="Status View" customClass="StatusView" customModule="DustNoticeApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="328.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-y6-Rcm">
+                                        <rect key="frame" x="95.666666666666686" y="10" width="184" height="48"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="미세먼지 앱">
+                                                <attributes>
+                                                    <font key="NSFont" size="40" name="AppleSDGothicNeo-Bold"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
+                                        <rect key="frame" x="117.66666666666667" y="58" width="139.66666666666663" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="1:1" id="8ET-Uo-2fH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-AG-Hic">
+                                        <rect key="frame" x="161.66666666666666" y="196" width="52" height="36"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="좋음">
+                                                <attributes>
+                                                    <font key="NSFont" size="30" name="AppleSDGothicNeo-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK1-AD-XCD">
+                                        <rect key="frame" x="127.66666666666669" y="287" width="120" height="19.333333333333314"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="강남구 측정소 기준">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name="AppleSDGothicNeo-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZL-QK-FEq">
+                                        <rect key="frame" x="197.66666666666663" y="240.33333333333331" width="141" height="36"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="어제 07:00">
+                                                <attributes>
+                                                    <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB6-an-rPj">
+                                        <rect key="frame" x="48" y="236" width="118" height="45"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="21 ">
+                                                <attributes>
+                                                    <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="𝜇">
+                                                <attributes>
+                                                    <font key="NSFont" size="30" name="STIXGeneral-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="g/m3">
+                                                <attributes>
+                                                    <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="1:1" id="8ET-Uo-2fH"/>
+                                    <constraint firstItem="bB6-an-rPj" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="4" id="03D-wi-5jT"/>
+                                    <constraint firstItem="5AL-qZ-Dy9" firstAttribute="top" secondItem="DXy-y6-Rcm" secondAttribute="bottom" id="Hkx-lx-PVg"/>
+                                    <constraint firstItem="hS9-AG-Hic" firstAttribute="top" secondItem="5AL-qZ-Dy9" secondAttribute="bottom" constant="-2" id="IbN-io-iSi"/>
+                                    <constraint firstItem="5AL-qZ-Dy9" firstAttribute="width" secondItem="Vtq-Ym-aKv" secondAttribute="width" multiplier="0.373" id="OZE-9W-yG8"/>
+                                    <constraint firstItem="hS9-AG-Hic" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" id="OhV-tZ-T7g"/>
+                                    <constraint firstItem="fZL-QK-FEq" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" multiplier="1.43" id="SVa-e5-pqo"/>
+                                    <constraint firstItem="bB6-an-rPj" firstAttribute="centerY" secondItem="fZL-QK-FEq" secondAttribute="centerY" id="UAZ-TN-GLV"/>
+                                    <constraint firstItem="aK1-AD-XCD" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" id="VmJ-Zt-01w"/>
+                                    <constraint firstItem="5AL-qZ-Dy9" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" id="Yez-mo-8fl"/>
+                                    <constraint firstItem="DXy-y6-Rcm" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" id="cTv-5r-yUV"/>
+                                    <constraint firstItem="aK1-AD-XCD" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="55" id="fsM-Js-Ns6"/>
+                                    <constraint firstItem="DXy-y6-Rcm" firstAttribute="top" secondItem="Vtq-Ym-aKv" secondAttribute="top" constant="10" id="reN-Ma-oqB"/>
+                                    <constraint firstItem="fZL-QK-FEq" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="8.5" id="sNp-qy-2cj"/>
+                                    <constraint firstItem="bB6-an-rPj" firstAttribute="centerX" secondItem="Vtq-Ym-aKv" secondAttribute="centerX" multiplier="0.57" id="w59-Pi-1fd"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-AG-Hic">
-                                <rect key="frame" x="161.66666666666666" y="245" width="52" height="36"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="좋음">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK1-AD-XCD">
-                                <rect key="frame" x="127.66666666666666" y="336" width="119.66666666666666" height="19.666666666666686"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="강남구 측정소 기준">
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="AppleSDGothicNeo-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZL-QK-FEq">
-                                <rect key="frame" x="197.66666666666663" y="289.66666666666669" width="141" height="36"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="어제 07:00">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB6-an-rPj">
-                                <rect key="frame" x="48" y="285" width="118" height="45"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="21 ">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="𝜇">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="STIXGeneral-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="g/m3">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <outlet property="dateLabel" destination="fZL-QK-FEq" id="AVE-JP-mqO"/>
+                                    <outlet property="emogiView" destination="5AL-qZ-Dy9" id="TWg-Z1-Rx7"/>
+                                    <outlet property="measureLabel" destination="bB6-an-rPj" id="qa3-QZ-1Pm"/>
+                                    <outlet property="stationLabel" destination="aK1-AD-XCD" id="SMm-sz-9ps"/>
+                                    <outlet property="statusLabel" destination="hS9-AG-Hic" id="0ot-lH-r4i"/>
+                                    <outlet property="titleLabel" destination="DXy-y6-Rcm" id="le3-ML-TpO"/>
+                                </connections>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-2I-sal">
                                 <rect key="frame" x="0.0" y="372.66666666666674" width="375" height="356.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -100,28 +130,23 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Vtq-Ym-aKv" firstAttribute="height" secondItem="PQr-Ze-W5v" secondAttribute="height" multiplier="0.48" id="2by-Wn-k1U"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Vtq-Ym-aKv" secondAttribute="trailing" id="6HE-7Z-WMy"/>
                             <constraint firstItem="NFL-2I-sal" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="B8n-I1-oAB"/>
-                            <constraint firstItem="DXy-y6-Rcm" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Fbj-rK-Gqf"/>
-                            <constraint firstItem="fZL-QK-FEq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="1.43" id="JQ4-DI-Jcr"/>
-                            <constraint firstItem="fZL-QK-FEq" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="8.5" id="MIE-ik-yWW"/>
-                            <constraint firstItem="DXy-y6-Rcm" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="10" id="OcL-rm-ct7"/>
+                            <constraint firstItem="Vtq-Ym-aKv" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="E37-sQ-T3g"/>
                             <constraint firstItem="NFL-2I-sal" firstAttribute="width" secondItem="PQr-Ze-W5v" secondAttribute="width" id="Pen-dh-htb"/>
-                            <constraint firstItem="hS9-AG-Hic" firstAttribute="top" secondItem="5AL-qZ-Dy9" secondAttribute="bottom" constant="-2" id="QdP-Jf-eOW"/>
-                            <constraint firstItem="aK1-AD-XCD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="TS4-YL-KXC"/>
-                            <constraint firstItem="bB6-an-rPj" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="0.57" id="WEi-bx-nAw"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="height" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="5" id="bSb-sv-ubJ"/>
+                            <constraint firstItem="Vtq-Ym-aKv" firstAttribute="width" secondItem="PQr-Ze-W5v" secondAttribute="width" id="deY-EU-pVY"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="NFL-2I-sal" secondAttribute="bottom" id="hlY-22-ea2"/>
                             <constraint firstItem="NFL-2I-sal" firstAttribute="height" secondItem="PQr-Ze-W5v" secondAttribute="height" multiplier="0.52" id="jzS-hw-C2Y"/>
-                            <constraint firstItem="5AL-qZ-Dy9" firstAttribute="top" secondItem="DXy-y6-Rcm" secondAttribute="bottom" constant="8" symbolic="YES" id="kQH-hg-k2E"/>
-                            <constraint firstItem="bB6-an-rPj" firstAttribute="centerY" secondItem="fZL-QK-FEq" secondAttribute="centerY" id="pkG-MQ-3dt"/>
-                            <constraint firstItem="aK1-AD-XCD" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="55" id="rqn-qS-S1E"/>
-                            <constraint firstItem="hS9-AG-Hic" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="sy7-Gk-QQA"/>
-                            <constraint firstItem="5AL-qZ-Dy9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tPm-32-0hK"/>
-                            <constraint firstItem="bB6-an-rPj" firstAttribute="top" secondItem="hS9-AG-Hic" secondAttribute="bottom" constant="4" id="vIa-kI-FAJ"/>
+                            <constraint firstItem="Vtq-Ym-aKv" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="xcK-FG-fuU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="smoke.fill" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="dustInfoTableView" destination="NFL-2I-sal" id="Ttk-ep-IW0"/>
+                        <outlet property="statusView" destination="Vtq-Ym-aKv" id="BMj-BA-AYR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +155,7 @@
         <!--예보-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="MapViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="BroadcastViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,12 +174,11 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-et-v6O">
                                 <rect key="frame" x="0.0" y="98" width="375" height="435"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H1E-et-v6O" secondAttribute="height" multiplier="1:1.16" id="HlV-o5-FT6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-vC-0KH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-vC-0KH">
                                 <rect key="frame" x="15" y="537" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="o5V-vC-0KH" secondAttribute="height" multiplier="6.9:1" id="zHd-Ks-d1n"/>
@@ -169,7 +193,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
                                 <rect key="frame" x="15" y="591" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rRy-xn-7FK" secondAttribute="height" multiplier="6.9:1" id="Bbq-k7-oYr"/>
@@ -178,7 +202,7 @@
                                     <fragment content="지역별 등급 레이블">
                                         <attributes>
                                             <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="10" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" size="10" name="AppleSDGothicNeo-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -191,9 +215,9 @@
                                     <constraint firstAttribute="width" secondItem="840-Tv-EaG" secondAttribute="height" multiplier="1:1" id="fTX-RE-fxR"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="play.fill" catalog="system"/>
+                                <state key="normal" image="play.fill"/>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LNm-0I-P2E">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LNm-0I-P2E">
                                 <rect key="frame" x="67" y="675" width="295" height="30"/>
                             </slider>
                         </subviews>
@@ -221,6 +245,13 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="broadcastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
+                        <outlet property="broadcastLabel" destination="o5V-vC-0KH" id="dgC-a2-PqW"/>
+                        <outlet property="button" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
+                        <outlet property="regionsLabel" destination="rRy-xn-7FK" id="tze-gI-C43"/>
+                        <outlet property="slider" destination="LNm-0I-P2E" id="eT6-FV-wd9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,8 +278,7 @@
     </scenes>
     <resources>
         <image name="clock.fill" width="17" height="17"/>
-        <image name="face-smile-big" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="play.fill" catalog="system" width="58" height="64"/>
+        <image name="play.fill" width="13" height="14"/>
         <image name="smoke.fill" width="19" height="14"/>
     </resources>
 </document>
