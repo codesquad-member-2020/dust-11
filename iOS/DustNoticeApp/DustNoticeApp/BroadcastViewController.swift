@@ -18,7 +18,20 @@ final class BroadcastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureObserver()
         configureBroadcastInfo()
+    }
+    
+    private func configureObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(foo),
+                                               name: BroadcastViewModel.Notification.broadcastImagesDidChange,
+                                               object: broadcastViewModel)
+    }
+    
+    @objc private func foo() {
+        if broadcastViewModel.count == 6 {
+            
+        }
     }
     
     private func configureBroadcastInfo() {
@@ -27,12 +40,11 @@ final class BroadcastViewController: UIViewController {
         DustInfoDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
         with: NetworkManager()) { broadcast in
             guard let broadcast = broadcast else { return }
-            guard let dustInform = broadcast.list.first else { return }
-            self.configureBroadcastViewModel(dustInform)
+            self.configureBroadcastViewModel(broadcast)
         }
     }
     
-    private func configureBroadcastViewModel(_ dustInform: DustInform) {
-        broadcastViewModel = BroadcastViewModel(dustInform: dustInform)
+    private func configureBroadcastViewModel(_ broadcast: Broadcast) {
+        broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
     }
 }

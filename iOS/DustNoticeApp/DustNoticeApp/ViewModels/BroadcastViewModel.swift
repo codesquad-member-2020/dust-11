@@ -5,25 +5,31 @@
 //  Created by kimdo2297 on 2020/04/03.
 //  Copyright © 2020 Jason. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 final class BroadcastViewModel {
-    private let dustInform: DustInform
+    enum Notification {
+        static let broadcastImagesDidChange = Foundation.Notification.Name("broadcastImagesDidChange")
+    }
+    private let broadcast: Broadcast
     private var broadcastImages = [UIImage]()
+    var count: Int {
+        return broadcastImages.count
+    }
     
-    init(dustInform: DustInform) {
-        self.dustInform = dustInform
+    init(broadcast: Broadcast) {
+        self.broadcast = broadcast
         configureBroadcastImages(networkManager: NetworkManager())
     }
     
     private func configureBroadcastImages(networkManager: NetworkManager) {
-        configureBroadcastImage(from: dustInform.imageUrl1, networkManager: networkManager)
-        configureBroadcastImage(from: dustInform.imageUrl2, networkManager: networkManager)
-        configureBroadcastImage(from: dustInform.imageUrl3, networkManager: networkManager)
-        configureBroadcastImage(from: dustInform.imageUrl4, networkManager: networkManager)
-        configureBroadcastImage(from: dustInform.imageUrl5, networkManager: networkManager)
-        configureBroadcastImage(from: dustInform.imageUrl6, networkManager: networkManager)
+        configureBroadcastImage(from: broadcast.imageUrl1, networkManager: networkManager)
+        configureBroadcastImage(from: broadcast.imageUrl2, networkManager: networkManager)
+        configureBroadcastImage(from: broadcast.imageUrl3, networkManager: networkManager)
+        configureBroadcastImage(from: broadcast.imageUrl4, networkManager: networkManager)
+        configureBroadcastImage(from: broadcast.imageUrl5, networkManager: networkManager)
+        configureBroadcastImage(from: broadcast.imageUrl6, networkManager: networkManager)
     }
     
     private func configureBroadcastImage(from string: String, networkManager: NetworkManager) {
@@ -31,6 +37,7 @@ final class BroadcastViewModel {
             guard error == nil else { return }
             guard let data = data else { return }
             self.insertBroadcastImage(data: data)
+            NotificationCenter.default.post(name: Notification.broadcastImagesDidChange, object: self)
         }
     }
     
