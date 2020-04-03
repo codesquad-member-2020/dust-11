@@ -86,9 +86,9 @@ public class DustService {
   }
 
   private DustList dust(String stationName) {
-    UrlRequest request = new UrlRequest(apiUrl, "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
-//    StringBuilder url = new StringBuilder(
-//        apiUrl + "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
+    UrlRequest request = new UrlRequest(apiUrl,
+        "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
+
     request.addServiceKey(key);
     request.addParam("numOfRows", "24");
     request.addParam("pageNo", "1");
@@ -96,21 +96,6 @@ public class DustService {
     request.addParam("dataTerm", "DAILY");
     request.addParam("ver", "1.3");
     request.addParam("_returnType", "json");
-
-
-//    url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
-//    url.append("&").append(URLEncoder.encode("numOfRows", "UTF-8")).append("=")
-//        .append(URLEncoder.encode("24", "UTF-8"));
-//    url.append("&").append(URLEncoder.encode("pageNo", "UTF-8")).append("=")
-//        .append(URLEncoder.encode("1", "UTF-8"));
-//    url.append("&").append(URLEncoder.encode("stationName", "UTF-8")).append("=")
-//        .append(URLEncoder.encode(stationName, "UTF-8"));
-//    url.append("&").append(URLEncoder.encode("dataTerm", "UTF-8")).append("=")
-//        .append(URLEncoder.encode("DAILY", "UTF-8"));
-//    url.append("&").append(URLEncoder.encode("_returnType", "UTF-8")).append("=")
-//        .append(URLEncoder.encode("json", "UTF-8"));
-//    url.append("&").append(URLEncoder.encode("ver", "UTF-8")).append("=")
-//        .append(URLEncoder.encode("1.3", "UTF-8"));
 
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_JSON);
