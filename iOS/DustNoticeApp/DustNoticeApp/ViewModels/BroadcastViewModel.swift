@@ -45,4 +45,10 @@ final class BroadcastViewModel {
         guard let broadcastImage = UIImage(data: data) else { return }
         broadcastImages.append(broadcastImage)
     }
+    
+    func bind(at index: Int, _ broadcastImageView: UIImageView) {
+        DispatchQueue.main.async {
+            broadcastImageView.image = self.broadcastImages[index]
+        }
+    }
 }

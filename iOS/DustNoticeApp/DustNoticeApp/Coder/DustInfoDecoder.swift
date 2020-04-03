@@ -22,7 +22,6 @@ struct DustInfoDecoder {
         manager.getResource(from: string) { (data, error) in
             guard error == nil else { return }
             guard let data = data else { return }
-            print(String(bytes: data, encoding: .utf8))
             guard let boradcast = try? JSONDecoder().decode(Broadcast.self, from: data) else { return }
             completionHandler(boradcast)
         }

@@ -23,14 +23,16 @@ final class BroadcastViewController: UIViewController {
     }
     
     private func configureObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(foo),
+        NotificationCenter.default.addObserver(self, selector: #selector(configureFirstBroadcastImage),
                                                name: BroadcastViewModel.Notification.broadcastImagesDidChange,
                                                object: broadcastViewModel)
     }
     
-    @objc private func foo() {
-        if broadcastViewModel.count == 6 {
-            
+    @objc private func configureFirstBroadcastImage() {
+        let firstImageCount = 1
+        let firstIndex = 0
+        if broadcastViewModel.count == firstImageCount {
+            broadcastViewModel.bind(at: firstIndex, broadcastImageView)
         }
     }
     
