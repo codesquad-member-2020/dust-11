@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +11,14 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="StationViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-Ym-aKv" userLabel="Status View" customClass="StatusView" customModule="DustNoticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="328.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="264.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-y6-Rcm">
-                                        <rect key="frame" x="95.666666666666686" y="10" width="184" height="48"/>
+                                        <rect key="frame" x="208" y="10" width="184" height="48"/>
                                         <attributedString key="attributedText">
                                             <fragment content="미세먼지 앱">
                                                 <attributes>
@@ -30,13 +29,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-qZ-Dy9">
-                                        <rect key="frame" x="117.66666666666667" y="58" width="139.66666666666663" height="140"/>
+                                        <rect key="frame" x="188" y="58" width="224" height="224"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5AL-qZ-Dy9" secondAttribute="height" multiplier="1:1" id="8ET-Uo-2fH"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-AG-Hic">
-                                        <rect key="frame" x="161.66666666666666" y="196" width="52" height="36"/>
+                                        <rect key="frame" x="274" y="280" width="52" height="36"/>
                                         <attributedString key="attributedText">
                                             <fragment content="좋음">
                                                 <attributes>
@@ -48,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK1-AD-XCD">
-                                        <rect key="frame" x="127.66666666666666" y="287" width="119.66666666666666" height="19.666666666666686"/>
+                                        <rect key="frame" x="240" y="371" width="120" height="19.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="강남구 측정소 기준">
                                                 <attributes>
@@ -60,7 +59,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZL-QK-FEq">
-                                        <rect key="frame" x="197.66666666666663" y="240.33333333333331" width="141" height="36"/>
+                                        <rect key="frame" x="358.5" y="324.5" width="141" height="36"/>
                                         <attributedString key="attributedText">
                                             <fragment content="어제 07:00">
                                                 <attributes>
@@ -72,7 +71,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB6-an-rPj">
-                                        <rect key="frame" x="48" y="236" width="118" height="45"/>
+                                        <rect key="frame" x="112" y="320" width="118" height="45"/>
                                         <attributedString key="attributedText">
                                             <fragment content="21 ">
                                                 <attributes>
@@ -123,7 +122,7 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-2I-sal">
-                                <rect key="frame" x="0.0" y="372.66666666666674" width="375" height="356.33333333333326"/>
+                                <rect key="frame" x="0.0" y="264.5" width="600" height="286.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <sections/>
                             </tableView>
@@ -155,13 +154,13 @@
         <!--예보-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="MapViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="BroadcastViewController" customModule="DustNoticeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcQ-aU-4CR">
-                                <rect key="frame" x="105.66666666666669" y="54" width="164" height="36"/>
+                                <rect key="frame" x="218" y="10" width="164" height="36"/>
                                 <attributedString key="attributedText">
                                     <fragment content="미세먼지 예보">
                                         <attributes>
@@ -173,14 +172,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-et-v6O">
-                                <rect key="frame" x="0.0" y="98" width="375" height="435"/>
+                                <rect key="frame" x="0.0" y="54" width="600" height="696"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H1E-et-v6O" secondAttribute="height" multiplier="1:1.16" id="HlV-o5-FT6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-vC-0KH">
-                                <rect key="frame" x="15" y="537" width="345" height="50"/>
+                                <rect key="frame" x="24" y="754" width="552" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="o5V-vC-0KH" secondAttribute="height" multiplier="6.9:1" id="zHd-Ks-d1n"/>
                                 </constraints>
@@ -195,7 +194,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
-                                <rect key="frame" x="15" y="591" width="345" height="50"/>
+                                <rect key="frame" x="24" y="838" width="552" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rRy-xn-7FK" secondAttribute="height" multiplier="6.9:1" id="Bbq-k7-oYr"/>
                                 </constraints>
@@ -211,7 +210,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="840-Tv-EaG">
-                                <rect key="frame" x="10" y="668" width="44" height="44"/>
+                                <rect key="frame" x="10" y="945" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="840-Tv-EaG" secondAttribute="height" multiplier="1:1" id="fTX-RE-fxR"/>
                                 </constraints>
@@ -219,7 +218,7 @@
                                 <state key="normal" image="play.fill" catalog="system"/>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LNm-0I-P2E">
-                                <rect key="frame" x="67" y="675" width="295" height="30"/>
+                                <rect key="frame" x="93" y="952" width="494" height="47.5"/>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

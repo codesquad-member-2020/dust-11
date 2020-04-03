@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MapViewController: UIViewController {
+final class BroadcastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
