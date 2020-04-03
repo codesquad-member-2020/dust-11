@@ -33,7 +33,7 @@ final class StationViewController: UIViewController {
     
     @objc private func configureDustInfo() {
         guard let subLocality = locationManager.subLocality else { return }
-        DustInfoDecoder.decode(from: "\(NetworkManager.EndPoints.dustURL)\(subLocality)",
+        DustInfoDecoder.decodeStation(from: "\(NetworkManager.EndPoints.dustURL)\(subLocality)",
         with: NetworkManager()) { station in
             guard let station = station else { return }
             DispatchQueue.main.async {
