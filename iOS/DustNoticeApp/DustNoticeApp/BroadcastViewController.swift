@@ -9,10 +9,19 @@
 import UIKit
 
 final class BroadcastViewController: UIViewController {
-    
+    //MARK:- IBOutlet
     @IBOutlet weak var broadcastImageView: UIImageView!
+    
+    //MARK:- Internal Property
+    private let dateProvider: () -> Date = Date.init
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBroadcastInfo()
+    }
+    
+    private func configureBroadcastInfo() {
+        let date = dateProvider()
+        let dateString = DateFormatter.broadcastDateFormatter.string(from: date)
     }
 }
