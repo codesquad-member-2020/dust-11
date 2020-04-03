@@ -12,11 +12,7 @@ struct Broadcast: Codable {
     let imageUrl1: String
     let imageUrl2: String
     let imageUrl3: String
-    let imageUrl4: String
-    let imageUrl5: String
-    let imageUrl6: String
-    var imageUrl7: String
     let informGrade: String
     let informOverall: String
+    let dataTime: String
 }
-

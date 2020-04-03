@@ -27,9 +27,6 @@ final class BroadcastViewModel {
         configureBroadcastImage(from: broadcast.imageUrl1, networkManager: networkManager)
         configureBroadcastImage(from: broadcast.imageUrl2, networkManager: networkManager)
         configureBroadcastImage(from: broadcast.imageUrl3, networkManager: networkManager)
-        configureBroadcastImage(from: broadcast.imageUrl4, networkManager: networkManager)
-        configureBroadcastImage(from: broadcast.imageUrl5, networkManager: networkManager)
-        configureBroadcastImage(from: broadcast.imageUrl6, networkManager: networkManager)
     }
     
     private func configureBroadcastImage(from string: String, networkManager: NetworkManager) {

@@ -13,6 +13,8 @@ final class BroadcastViewController: UIViewController {
     @IBOutlet weak var broadcastImageView: UIImageView!
     @IBOutlet weak var broadcastLabel: UILabel!
     @IBOutlet weak var regionsLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var button: UIButton!
     
     //MARK:- Internal Property
     private let dateProvider: () -> Date = Date.init
@@ -20,8 +22,52 @@ final class BroadcastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSlider()
+        configureButton()
         configureObserver()
         configureBroadcastInfo()
+    }
+    
+    private func configureSlider() {
+        slider.addTarget(self, action: #selector(silderValueChanged), for: .valueChanged)
+    }
+    
+    @objc private func silderValueChanged() {
+        guard broadcastViewModel.count != 0 else { return }
+        let unit = slider.maximumValue / Float(broadcastViewModel.count)
+        let currentValue = slider.value
+        let currentIndex = Int(currentValue / unit)
+        guard currentIndex < broadcastViewModel.count else { return }
+        broadcastImageView.image = broadcastViewModel.broadcastImages[currentIndex]
+    }
+    
+    private func configureButton() {
+        button.addTarget(self, action: #selector(buttonTouchupInside), for: .touchUpInside)
+    }
+    
+    private var isPlay = false
+    @objc func buttonTouchupInside() {
+        isPlay = !isPlay
+        if isPlay {
+            guard let pauseImage = UIImage(systemName: "pause.fill") else { return }
+            button.setImage(pauseImage, for: .normal)
+            
+            guard broadcastViewModel.count != 0 else { return }
+            let unit = self.slider.maximumValue / Float(self.broadcastViewModel.count)
+            var curValue: Float = 0
+            UIView.animate(withDuration: 1.0,
+                           delay: 0,
+                           options: [.autoreverse,.repeat],
+                           animations: {
+                            self.slider.setValue(curValue, animated: true)
+                            curValue = curValue + unit / unit
+                            let curIndex = Int(curValue) % self.broadcastViewModel.count
+                            self.broadcastImageView.image = self.broadcastViewModel.broadcastImages[curIndex]
+            }, completion: nil)
+        } else {
+            guard let playImage = UIImage(systemName: "play.fill") else { return }
+            self.button.setImage(playImage, for: .normal)
+        }
     }
     
     private func configureObserver() {
@@ -56,13 +102,5 @@ final class BroadcastViewController: UIViewController {
     
     private func configureBroadcastViewModel(_ broadcast: Broadcast) {
         broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
-    }
-    
-    @IBAction func changeRowSlider(_ sender: UISlider) {
-        let unit = sender.maximumValue / Float(broadcastViewModel.count)
-        let currentValue = sender.value
-        let currentIndex = Int(currentValue / unit)
-        guard currentIndex < broadcastViewModel.count else { return }
-        broadcastImageView.image = broadcastViewModel.broadcastImages[currentIndex]
     }
 }

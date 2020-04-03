@@ -183,14 +183,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="o5V-vC-0KH" secondAttribute="height" multiplier="6.9:1" id="zHd-Ks-d1n"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="예보문구 레이블">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
@@ -198,15 +191,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rRy-xn-7FK" secondAttribute="height" multiplier="6.9:1" id="Bbq-k7-oYr"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="지역별 등급 레이블">
-                                        <attributes>
-                                            <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="10" name="AppleSDGothicNeo-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="840-Tv-EaG">
@@ -215,13 +200,10 @@
                                     <constraint firstAttribute="width" secondItem="840-Tv-EaG" secondAttribute="height" multiplier="1:1" id="fTX-RE-fxR"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="play.fill" catalog="system"/>
+                                <state key="normal" image="play.fill"/>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LNm-0I-P2E">
                                 <rect key="frame" x="67" y="675" width="295" height="30"/>
-                                <connections>
-                                    <action selector="changeRowSlider:" destination="8rJ-Kc-sve" eventType="valueChanged" id="PFA-Ci-h5G"/>
-                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -251,7 +233,9 @@
                     <connections>
                         <outlet property="broadcastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
                         <outlet property="broadcastLabel" destination="o5V-vC-0KH" id="dgC-a2-PqW"/>
+                        <outlet property="button" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
                         <outlet property="regionsLabel" destination="rRy-xn-7FK" id="tze-gI-C43"/>
+                        <outlet property="slider" destination="LNm-0I-P2E" id="eT6-FV-wd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -279,7 +263,7 @@
     </scenes>
     <resources>
         <image name="clock.fill" width="17" height="17"/>
-        <image name="play.fill" catalog="system" width="58" height="64"/>
+        <image name="play.fill" width="13" height="14"/>
         <image name="smoke.fill" width="19" height="14"/>
     </resources>
 </document>
