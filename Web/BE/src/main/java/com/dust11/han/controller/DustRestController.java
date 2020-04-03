@@ -158,13 +158,7 @@ public class DustRestController {
         .exchange(uri, HttpMethod.GET, request, String.class);
     JsonObject jsonObject = JsonParser.parseString(responseEntity.getBody()).getAsJsonObject()
         .get("list").getAsJsonArray().get(0).getAsJsonObject();
-    Pm10Request pm10Request = new Pm10Request();
-    pm10Request.setDataTime(jsonObject.get("dataTime").toString());
-    pm10Request.setInformOverall(jsonObject.get("informOverall").toString());
-    pm10Request.setInformGrade(jsonObject.get("informGrade").toString());
-    pm10Request.getImages().add(jsonObject.get("imageUrl1").toString());
-    pm10Request.getImages().add(jsonObject.get("imageUrl2").toString());
-    pm10Request.getImages().add(jsonObject.get("imageUrl3").toString());
+    Pm10Request pm10Request = gson.fromJson(jsonObject, Pm10Request.class);
     return pm10Request.toString();
   }
 }
