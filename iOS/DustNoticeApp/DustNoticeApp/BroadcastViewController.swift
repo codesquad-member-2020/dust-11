@@ -27,11 +27,12 @@ final class BroadcastViewController: UIViewController {
         DustInfoDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
         with: NetworkManager()) { broadcast in
             guard let broadcast = broadcast else { return }
-            self.configureBroadcastViewModel(broadcast)
+            guard let dustInform = broadcast.list.first else { return }
+            self.configureBroadcastViewModel(dustInform)
         }
     }
     
-    private func configureBroadcastViewModel(_ broadcast: Broadcast) {
-        broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
+    private func configureBroadcastViewModel(_ dustInform: DustInform) {
+        broadcastViewModel = BroadcastViewModel(dustInform: dustInform)
     }
 }
