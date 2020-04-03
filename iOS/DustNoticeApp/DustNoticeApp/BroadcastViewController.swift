@@ -9,6 +9,9 @@
 import UIKit
 
 final class BroadcastViewController: UIViewController {
+    
+    @IBOutlet weak var broadcastImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
