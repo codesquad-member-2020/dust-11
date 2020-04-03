@@ -3,10 +3,13 @@ package com.dust11.han.controller;
 import com.dust11.han.model.DustList;
 import com.dust11.han.model.LocationList;
 import com.dust11.han.model.LocationRequest;
-import com.dust11.han.model.Pm10List;
+import com.dust11.han.model.Pm10Request;
 import com.dust11.han.model.TmXYList;
 import com.dust11.han.model.TmXYRequest;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -154,7 +157,8 @@ public class DustRestController {
     HttpEntity<String> request = new HttpEntity<>(httpHeaders);
     ResponseEntity<String> responseEntity = restTemplate
         .exchange(uri, HttpMethod.GET, request, String.class);
-    Pm10List list = gson.fromJson(responseEntity.getBody(), Pm10List.class);
-    return list.toString();
+    JsonElement jsonElement = JsonParser.parseString(responseEntity.getBody());
+    Pm10Request pm10Request = gson.fromJson(jsonElement.getAsJsonObject().get("list").getAsJsonArray().get(0), Pm10Request.class);
+    return pm10Request.toString();
   }
 }
