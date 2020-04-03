@@ -12,8 +12,8 @@ final class BroadcastViewModel {
     enum Notification {
         static let broadcastImagesDidChange = Foundation.Notification.Name("broadcastImagesDidChange")
     }
-    private let broadcast: Broadcast
-    private var broadcastImages = [UIImage]()
+    let broadcast: Broadcast
+    var broadcastImages = [UIImage]()
     var count: Int {
         return broadcastImages.count
     }
@@ -44,11 +44,5 @@ final class BroadcastViewModel {
     private func insertBroadcastImage(data: Data) {
         guard let broadcastImage = UIImage(data: data) else { return }
         broadcastImages.append(broadcastImage)
-    }
-    
-    func bind(at index: Int, _ broadcastImageView: UIImageView) {
-        DispatchQueue.main.async {
-            broadcastImageView.image = self.broadcastImages[index]
-        }
     }
 }

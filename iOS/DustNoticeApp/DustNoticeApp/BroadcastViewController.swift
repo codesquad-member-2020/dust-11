@@ -11,6 +11,8 @@ import UIKit
 final class BroadcastViewController: UIViewController {
     //MARK:- IBOutlet
     @IBOutlet weak var broadcastImageView: UIImageView!
+    @IBOutlet weak var broadcastLabel: UILabel!
+    @IBOutlet weak var regionsLabel: UILabel!
     
     //MARK:- Internal Property
     private let dateProvider: () -> Date = Date.init
@@ -32,7 +34,9 @@ final class BroadcastViewController: UIViewController {
         let firstImageCount = 1
         let firstIndex = 0
         if broadcastViewModel.count == firstImageCount {
-            broadcastViewModel.bind(at: firstIndex, broadcastImageView)
+            DispatchQueue.main.async {
+                self.broadcastImageView.image = self.broadcastViewModel.broadcastImages[firstIndex]
+            }
         }
     }
     
@@ -43,6 +47,10 @@ final class BroadcastViewController: UIViewController {
         with: NetworkManager()) { broadcast in
             guard let broadcast = broadcast else { return }
             self.configureBroadcastViewModel(broadcast)
+            DispatchQueue.main.async {
+                self.broadcastLabel.text = self.broadcastViewModel.broadcast.informOverall
+                self.regionsLabel.text = self.broadcastViewModel.broadcast.informGrade
+            }
         }
     }
     

@@ -179,7 +179,7 @@
                                     <constraint firstAttribute="width" secondItem="H1E-et-v6O" secondAttribute="height" multiplier="1:1.16" id="HlV-o5-FT6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-vC-0KH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-vC-0KH">
                                 <rect key="frame" x="15" y="537" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="o5V-vC-0KH" secondAttribute="height" multiplier="6.9:1" id="zHd-Ks-d1n"/>
@@ -194,7 +194,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-xn-7FK">
                                 <rect key="frame" x="15" y="591" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rRy-xn-7FK" secondAttribute="height" multiplier="6.9:1" id="Bbq-k7-oYr"/>
@@ -248,6 +248,8 @@
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="broadcastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
+                        <outlet property="broadcastLabel" destination="o5V-vC-0KH" id="dgC-a2-PqW"/>
+                        <outlet property="regionsLabel" destination="rRy-xn-7FK" id="tze-gI-C43"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
