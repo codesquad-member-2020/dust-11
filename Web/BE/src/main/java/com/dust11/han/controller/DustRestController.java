@@ -1,11 +1,11 @@
 package com.dust11.han.controller;
 
 import com.dust11.han.api.ApiResult;
+import com.dust11.han.model.DustList;
 import com.dust11.han.service.DustService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +27,8 @@ public class DustRestController {
 
   @GetMapping("{region}")
   @ApiOperation("region(읍면동) 에 대한 24시간 미세먼지 현황 반환")
-  public ApiResult<String> getDustFromRegion(
-      @PathVariable(value = "region") @ApiParam(value = "예시 : 상현동") String region)
-      throws IOException {
+  public ApiResult<DustList> getDustFromRegion(
+      @PathVariable(value = "region") @ApiParam(value = "예시 : 상현동") String region) {
     return ApiResult.OK(dustService.getDust(region));
   }
 

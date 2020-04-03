@@ -6,6 +6,7 @@ import com.dust11.han.model.LocationRequest;
 import com.dust11.han.model.Pm10List;
 import com.dust11.han.model.TmXYList;
 import com.dust11.han.model.TmXYRequest;
+import com.dust11.han.model.UrlRequest;
 import com.google.gson.Gson;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -43,82 +44,83 @@ public class DustService {
     this.gson = gson;
   }
 
-  public String getDust(String umdName)
-      throws IOException {
-    StringBuilder url = new StringBuilder(apiUrl + "/MsrstnInfoInqireSvc/getTMStdrCrdnt");
-    url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
-    url.append("&").append(URLEncoder.encode("numOfRows", "UTF-8")).append("=")
-        .append(URLEncoder.encode("10", "UTF-8"));
-    url.append("&").append(URLEncoder.encode("pageNo", "UTF-8")).append("=")
-        .append(URLEncoder.encode("1", "UTF-8"));
-    url.append("&").append(URLEncoder.encode("umdName", "UTF-8")).append("=")
-        .append(URLEncoder.encode(umdName, "UTF-8"));
-    url.append("&").append(URLEncoder.encode("_returnType", "UTF-8")).append("=")
-        .append(URLEncoder.encode("json", "UTF-8"));
+  public DustList getDust(String umdName) {
+    UrlRequest request = new UrlRequest(apiUrl, "/MsrstnInfoInqireSvc/getTMStdrCrdnt");
+    request.addServiceKey(key);
+    request.addParam("numOfRows", "10");
+    request.addParam("pageNo", "1");
+    request.addParam("umdName", umdName);
+    request.addParam("_returnType", "json");
 
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-    URI uri = URI.create(url.toString());
+    logger.debug("url : {}", request.getUrl());
+    URI uri = URI.create(request.getUrl());
 
-    HttpEntity<String> request = new HttpEntity<>(httpHeaders);
+    HttpEntity<String> entity = new HttpEntity<>(httpHeaders);
     ResponseEntity<String> responseEntity = restTemplate
-        .exchange(uri, HttpMethod.GET, request, String.class);
+        .exchange(uri, HttpMethod.GET, entity, String.class);
 
     TmXYList tmXYList = gson.fromJson(responseEntity.getBody(), TmXYList.class);
     TmXYRequest tmXYRequest = tmXYList.getList().get(0);
     return getTmx(tmXYRequest.getTmX(), tmXYRequest.getTmY());
   }
 
-  public String getTmx(String tmX, String tmY) throws IOException {
-    StringBuilder url = new StringBuilder(apiUrl + "/MsrstnInfoInqireSvc/getNearbyMsrstnList");
-    url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
-    url.append("&").append(URLEncoder.encode("tmX", "UTF-8")).append("=")
-        .append(URLEncoder.encode(tmX, "UTF-8"));
-    url.append("&").append(URLEncoder.encode("tmY", "UTF-8")).append("=")
-        .append(URLEncoder.encode(tmY, "UTF-8"));
-    url.append("&").append(URLEncoder.encode("_returnType", "UTF-8")).append("=")
-        .append(URLEncoder.encode("json", "UTF-8"));
+  public DustList getTmx(String tmX, String tmY) {
+    UrlRequest request = new UrlRequest(apiUrl, "/MsrstnInfoInqireSvc/getNearbyMsrstnList");
+    request.addServiceKey(key);
+    request.addParam("tmX", tmX);
+    request.addParam("tmY", tmY);
+    request.addParam("_returnType", "json");
 
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-    URI uri = URI.create(url.toString());
-    HttpEntity<String> request = new HttpEntity<>(httpHeaders);
+    URI uri = URI.create(request.getUrl());
+    HttpEntity<String> entity = new HttpEntity<>(httpHeaders);
     ResponseEntity<String> responseEntity = restTemplate
-        .exchange(uri, HttpMethod.GET, request, String.class);
+        .exchange(uri, HttpMethod.GET, entity, String.class);
 
     LocationList locationList = gson.fromJson(responseEntity.getBody(), LocationList.class);
     LocationRequest locationRequest = locationList.getList().get(0);
     return dust(locationRequest.getStationName());
-
   }
 
-  private String dust(String stationName) throws IOException {
-    StringBuilder url = new StringBuilder(
-        apiUrl + "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
-    url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
-    url.append("&").append(URLEncoder.encode("numOfRows", "UTF-8")).append("=")
-        .append(URLEncoder.encode("24", "UTF-8"));
-    url.append("&").append(URLEncoder.encode("pageNo", "UTF-8")).append("=")
-        .append(URLEncoder.encode("1", "UTF-8"));
-    url.append("&").append(URLEncoder.encode("stationName", "UTF-8")).append("=")
-        .append(URLEncoder.encode(stationName, "UTF-8"));
-    url.append("&").append(URLEncoder.encode("dataTerm", "UTF-8")).append("=")
-        .append(URLEncoder.encode("DAILY", "UTF-8"));
-    url.append("&").append(URLEncoder.encode("_returnType", "UTF-8")).append("=")
-        .append(URLEncoder.encode("json", "UTF-8"));
-    url.append("&").append(URLEncoder.encode("ver", "UTF-8")).append("=")
-        .append(URLEncoder.encode("1.3", "UTF-8"));
+  private DustList dust(String stationName) {
+    UrlRequest request = new UrlRequest(apiUrl, "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
+//    StringBuilder url = new StringBuilder(
+//        apiUrl + "/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty");
+    request.addServiceKey(key);
+    request.addParam("numOfRows", "24");
+    request.addParam("pageNo", "1");
+    request.addParam("stationName", stationName);
+    request.addParam("dataTerm", "DAILY");
+    request.addParam("ver", "1.3");
+    request.addParam("_returnType", "json");
+
+
+//    url.append("?").append(URLEncoder.encode("ServiceKey", "UTF-8")).append("=").append(key);
+//    url.append("&").append(URLEncoder.encode("numOfRows", "UTF-8")).append("=")
+//        .append(URLEncoder.encode("24", "UTF-8"));
+//    url.append("&").append(URLEncoder.encode("pageNo", "UTF-8")).append("=")
+//        .append(URLEncoder.encode("1", "UTF-8"));
+//    url.append("&").append(URLEncoder.encode("stationName", "UTF-8")).append("=")
+//        .append(URLEncoder.encode(stationName, "UTF-8"));
+//    url.append("&").append(URLEncoder.encode("dataTerm", "UTF-8")).append("=")
+//        .append(URLEncoder.encode("DAILY", "UTF-8"));
+//    url.append("&").append(URLEncoder.encode("_returnType", "UTF-8")).append("=")
+//        .append(URLEncoder.encode("json", "UTF-8"));
+//    url.append("&").append(URLEncoder.encode("ver", "UTF-8")).append("=")
+//        .append(URLEncoder.encode("1.3", "UTF-8"));
 
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-    URI uri = URI.create(url.toString());
-    HttpEntity<String> request = new HttpEntity<>(httpHeaders);
+    URI uri = URI.create(request.getUrl());
+    HttpEntity<String> entity = new HttpEntity<>(httpHeaders);
     ResponseEntity<String> responseEntity = restTemplate
-        .exchange(uri, HttpMethod.GET, request, String.class);
+        .exchange(uri, HttpMethod.GET, entity, String.class);
     DustList dustList = gson.fromJson(responseEntity.getBody(), DustList.class);
     dustList.setStationName(stationName);
-    return dustList.toString();
-
+    return dustList;
   }
 
   @GetMapping("/pm10/{date}")
