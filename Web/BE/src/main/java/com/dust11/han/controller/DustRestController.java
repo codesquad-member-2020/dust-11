@@ -7,7 +7,6 @@ import com.dust11.han.model.Pm10Request;
 import com.dust11.han.model.TmXYList;
 import com.dust11.han.model.TmXYRequest;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.swagger.annotations.Api;
@@ -131,7 +130,7 @@ public class DustRestController {
   }
 
   @GetMapping("/pm10/{date}")
-  @ApiOperation("날짜 기준으로, PM10 대기오염정보 현황을 반 ")
+  @ApiOperation("날짜 기준으로, PM10 대기오염정보 현황을 반환 ")
   public String pm10Animations(
       @PathVariable(value = "date") @ApiParam("예시 : 2020-04-01") String searchDate)
       throws IOException {
@@ -157,8 +156,15 @@ public class DustRestController {
     HttpEntity<String> request = new HttpEntity<>(httpHeaders);
     ResponseEntity<String> responseEntity = restTemplate
         .exchange(uri, HttpMethod.GET, request, String.class);
-    JsonElement jsonElement = JsonParser.parseString(responseEntity.getBody());
-    Pm10Request pm10Request = gson.fromJson(jsonElement.getAsJsonObject().get("list").getAsJsonArray().get(0), Pm10Request.class);
+    JsonObject jsonObject = JsonParser.parseString(responseEntity.getBody()).getAsJsonObject()
+        .get("list").getAsJsonArray().get(0).getAsJsonObject();
+    Pm10Request pm10Request = new Pm10Request();
+    pm10Request.setDataTime(jsonObject.get("dataTime").toString());
+    pm10Request.setInformOverall(jsonObject.get("informOverall").toString());
+    pm10Request.setInformGrade(jsonObject.get("informGrade").toString());
+    pm10Request.getImages().add(jsonObject.get("imageUrl1").toString());
+    pm10Request.getImages().add(jsonObject.get("imageUrl2").toString());
+    pm10Request.getImages().add(jsonObject.get("imageUrl3").toString());
     return pm10Request.toString();
   }
 }
