@@ -13,8 +13,9 @@ final class BroadcastViewModel {
         static let broadcastImagesDidChange = Foundation.Notification.Name("broadcastImagesDidChange")
     }
     let broadcast: Broadcast
-    var broadcastImages = [UIImage]()
-    var count: Int {
+    private var broadcastImages = [UIImage]()
+    private static let totalImagesCount = 3
+    var imagesCount: Int {
         return broadcastImages.count
     }
     
@@ -34,12 +35,19 @@ final class BroadcastViewModel {
             guard error == nil else { return }
             guard let data = data else { return }
             self.insertBroadcastImage(data: data)
-            NotificationCenter.default.post(name: Notification.broadcastImagesDidChange, object: self)
+            if self.imagesCount == BroadcastViewModel.totalImagesCount {
+                NotificationCenter.default.post(name: Notification.broadcastImagesDidChange, object: self)
+            }
         }
     }
     
     private func insertBroadcastImage(data: Data) {
         guard let broadcastImage = UIImage(data: data) else { return }
         broadcastImages.append(broadcastImage)
+    }
+    
+    func configureFirstImage(_ broadcastImageView: UIImageView) {
+        let firstImageIndex = 0
+        broadcastImageView.image = broadcastImages[firstImageIndex]
     }
 }

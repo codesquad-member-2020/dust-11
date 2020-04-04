@@ -33,12 +33,8 @@ final class BroadcastViewController: UIViewController {
     }
     
     @objc private func configureFirstBroadcastImage() {
-        let firstImageCount = 1
-        let firstIndex = 0
-        if broadcastViewModel.count == firstImageCount {
-            DispatchQueue.main.async {
-                self.broadcastImageView.image = self.broadcastViewModel.broadcastImages[firstIndex]
-            }
+        DispatchQueue.main.async {
+            self.broadcastViewModel.configureFirstImage(self.broadcastImageView)
         }
     }
     
