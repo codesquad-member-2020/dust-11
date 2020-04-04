@@ -27,10 +27,6 @@ final class BroadcastViewController: UIViewController {
         configureBroadcastInfo()
     }
     
-    private func configureToggleButton() {
-        toggleButton.delegate = forecastImageView
-    }
-    
     private func configureObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(configureViews),
                                                name: BroadcastViewModel.Notification.broadcastImagesDidChange,
@@ -68,5 +64,32 @@ final class BroadcastViewController: UIViewController {
     
     private func configureBroadcastViewModel(_ broadcast: Broadcast) {
         broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
+    }
+}
+
+extension BroadcastViewController: ToggleButtonDelegate {
+    private func configureToggleButton() {
+        toggleButton.delegate = self
+    }
+    
+    func animate(with isPlay: Bool) {
+        UIView.transition(with: forecastImageView, duration: 1, options: .transitionCrossDissolve, animations: {
+            self.processSlider()
+            self.processImage()
+        }) { result in
+            if result, isPlay {
+                self.animate(with: isPlay)
+            }
+        }
+    }
+    
+    private func processSlider() {
+        let mod = broadcastViewModel.imagesCount
+        let nextIndex = Int(broadcastSlider.value + 1) % mod
+        broadcastSlider.setValue(Float(nextIndex), animated: true)
+    }
+    
+    private func processImage() {
+        broadcastViewModel.bind(forecastImageView, at: Int(broadcastSlider.value))
     }
 }
