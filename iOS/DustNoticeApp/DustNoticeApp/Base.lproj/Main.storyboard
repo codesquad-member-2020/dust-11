@@ -231,11 +231,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="broadcastButton" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
                         <outlet property="broadcastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
                         <outlet property="broadcastLabel" destination="o5V-vC-0KH" id="dgC-a2-PqW"/>
-                        <outlet property="button" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
+                        <outlet property="broadcastSlider" destination="LNm-0I-P2E" id="eT6-FV-wd9"/>
                         <outlet property="regionsLabel" destination="rRy-xn-7FK" id="tze-gI-C43"/>
-                        <outlet property="slider" destination="LNm-0I-P2E" id="eT6-FV-wd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

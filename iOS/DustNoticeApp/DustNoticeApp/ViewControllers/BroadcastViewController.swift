@@ -13,8 +13,8 @@ final class BroadcastViewController: UIViewController {
     @IBOutlet weak var broadcastImageView: UIImageView!
     @IBOutlet weak var broadcastLabel: BroadcastLabel!
     @IBOutlet weak var regionsLabel: BroadcastLabel!
-    @IBOutlet weak var slider: BroadcastSlider!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var broadcastSlider: BroadcastSlider!
+    @IBOutlet weak var broadcastButton: UIButton!
     
     //MARK:- Internal Property
     private let dateProvider: () -> Date = Date.init
