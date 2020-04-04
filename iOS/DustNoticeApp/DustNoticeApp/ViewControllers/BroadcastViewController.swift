@@ -12,7 +12,7 @@ final class BroadcastViewController: UIViewController {
     //MARK:- IBOutlet
     @IBOutlet weak var broadcastImageView: UIImageView!
     @IBOutlet weak var broadcastLabel: BroadcastLabel!
-    @IBOutlet weak var regionsLabel: UILabel!
+    @IBOutlet weak var regionsLabel: BroadcastLabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var button: UIButton!
     

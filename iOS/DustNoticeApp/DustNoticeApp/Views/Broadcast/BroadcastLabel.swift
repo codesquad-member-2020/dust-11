@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BroadcastLabel: UILabel {
+final class BroadcastLabel: UILabel {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
