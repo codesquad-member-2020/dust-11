@@ -46,7 +46,7 @@ final class BroadcastViewModel {
         broadcastImages.append(broadcastImage)
     }
     
-    func configureFirstImage(_ broadcastImageView: UIImageView) {
+    func bindFirstImage(_ broadcastImageView: UIImageView) {
         let firstImageIndex = 0
         broadcastImageView.image = broadcastImages[firstImageIndex]
     }

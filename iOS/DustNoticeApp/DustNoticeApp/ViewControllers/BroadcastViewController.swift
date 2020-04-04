@@ -34,7 +34,7 @@ final class BroadcastViewController: UIViewController {
     
     @objc private func configureFirstBroadcastImage() {
         DispatchQueue.main.async {
-            self.broadcastViewModel.configureFirstImage(self.broadcastImageView)
+            self.broadcastViewModel.bindFirstImage(self.broadcastImageView)
         }
     }
     
