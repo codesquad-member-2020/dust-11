@@ -46,12 +46,12 @@ final class BroadcastViewModel {
         broadcastImages.append(broadcastImage)
     }
     
-    func bindFirstImage(_ broadcastImageView: ForecastImageView) {
+    func bindFirstImage(_ broadcastImageView: UIImageView) {
         let firstImageIndex = 0
         broadcastImageView.image = broadcastImages[firstImageIndex]
     }
     
-    func bind(_ forecastImageView: ForecastImageView, at index: Int) {
+    func bind(_ forecastImageView: UIImageView, at index: Int) {
         guard index < imagesCount else { return }
         forecastImageView.image = broadcastImages[index]
         

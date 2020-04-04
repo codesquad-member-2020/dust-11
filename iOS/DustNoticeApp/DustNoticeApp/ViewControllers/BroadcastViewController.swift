@@ -10,7 +10,7 @@ import UIKit
 
 final class BroadcastViewController: UIViewController {
     //MARK:- IBOutlet
-    @IBOutlet weak var forecastImageView: ForecastImageView!
+    @IBOutlet weak var forecastImageView: UIImageView!
     @IBOutlet weak var broadcastLabel: BroadcastLabel!
     @IBOutlet weak var regionsLabel: BroadcastLabel!
     @IBOutlet weak var broadcastSlider: BroadcastSlider!
