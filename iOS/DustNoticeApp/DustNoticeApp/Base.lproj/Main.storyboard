@@ -200,7 +200,6 @@
                                     <constraint firstAttribute="width" secondItem="840-Tv-EaG" secondAttribute="height" multiplier="1:1" id="fTX-RE-fxR"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="play.fill"/>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LNm-0I-P2E" customClass="BroadcastSlider" customModule="DustNoticeApp" customModuleProvider="target">
                                 <rect key="frame" x="67" y="675" width="295" height="30"/>
@@ -263,7 +262,6 @@
     </scenes>
     <resources>
         <image name="clock.fill" width="17" height="17"/>
-        <image name="play.fill" width="13" height="14"/>
         <image name="smoke.fill" width="19" height="14"/>
     </resources>
 </document>
