@@ -46,8 +46,8 @@ final class BroadcastViewController: UIViewController {
             guard let broadcast = broadcast else { return }
             self.configureBroadcastViewModel(broadcast)
             DispatchQueue.main.async {
-                self.broadcastLabel.text = self.broadcastViewModel.broadcast.informOverall
-                self.regionsLabel.text = self.broadcastViewModel.broadcast.informGrade
+                self.broadcastViewModel.bindBroadcastLabel(self.broadcastLabel)
+                self.broadcastViewModel.bindRegionsLabel(self.regionsLabel)
             }
         }
     }

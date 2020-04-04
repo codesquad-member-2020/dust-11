@@ -12,7 +12,7 @@ final class BroadcastViewModel {
     enum Notification {
         static let broadcastImagesDidChange = Foundation.Notification.Name("broadcastImagesDidChange")
     }
-    let broadcast: Broadcast
+    private let broadcast: Broadcast
     private var broadcastImages = [UIImage]()
     private static let totalImagesCount = 3
     var imagesCount: Int {
@@ -49,5 +49,12 @@ final class BroadcastViewModel {
     func bindFirstImage(_ broadcastImageView: UIImageView) {
         let firstImageIndex = 0
         broadcastImageView.image = broadcastImages[firstImageIndex]
+    }
+    
+    func bindBroadcastLabel(_ broadcastLabel: UILabel) {
+        broadcastLabel.text = broadcast.informOverall
+    }
+    func bindRegionsLabel(_ regionsLabel: UILabel) {
+        regionsLabel.text = broadcast.informGrade
     }
 }
