@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-struct DustInfoDecoder {
+struct DustDecoder {
     static func decodeStation(from string: String, with manager: NetworkManager, completionHandler: @escaping (Station?) -> ()) {
         manager.getResource(from: string) { (data, error) in
             guard error == nil else { return }
