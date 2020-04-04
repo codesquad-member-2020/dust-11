@@ -194,7 +194,7 @@
                                 <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="840-Tv-EaG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="840-Tv-EaG" customClass="ToggleButton" customModule="DustNoticeApp" customModuleProvider="target">
                                 <rect key="frame" x="10" y="668" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="840-Tv-EaG" secondAttribute="height" multiplier="1:1" id="fTX-RE-fxR"/>
@@ -231,11 +231,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="broadcastButton" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
                         <outlet property="broadcastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
                         <outlet property="broadcastLabel" destination="o5V-vC-0KH" id="dgC-a2-PqW"/>
                         <outlet property="broadcastSlider" destination="LNm-0I-P2E" id="eT6-FV-wd9"/>
                         <outlet property="regionsLabel" destination="rRy-xn-7FK" id="tze-gI-C43"/>
+                        <outlet property="toggleButton" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

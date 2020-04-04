@@ -14,7 +14,7 @@ final class BroadcastViewController: UIViewController {
     @IBOutlet weak var broadcastLabel: BroadcastLabel!
     @IBOutlet weak var regionsLabel: BroadcastLabel!
     @IBOutlet weak var broadcastSlider: BroadcastSlider!
-    @IBOutlet weak var broadcastButton: UIButton!
+    @IBOutlet weak var toggleButton: ToggleButton!
     
     //MARK:- Internal Property
     private let dateProvider: () -> Date = Date.init

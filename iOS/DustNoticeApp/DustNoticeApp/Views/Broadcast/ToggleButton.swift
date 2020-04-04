@@ -1,5 +1,5 @@
 //
-//  BroadcastButton.swift
+//  ToggleButton.swift
 //  DustNoticeApp
 //
 //  Created by kimdo2297 on 2020/04/04.
@@ -8,15 +8,18 @@
 
 import UIKit
 
-final class BroadcastButton: UIButton {
+final class ToggleButton: UIButton {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureDelegate()
+        configureBorder()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureDelegate()
+        configureBorder()
     }
     
     private func configureDelegate() {
@@ -24,7 +27,12 @@ final class BroadcastButton: UIButton {
     }
     
     @objc func isPlayChanged() {
-    
+        
     }
     
+    private func configureBorder() {
+        layer.borderWidth = 0.9
+        layer.borderColor = UIColor.black.cgColor
+    }
 }
+
