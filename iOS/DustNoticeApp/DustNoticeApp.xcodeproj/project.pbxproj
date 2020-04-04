@@ -116,10 +116,8 @@
 		5A0CBCC12432EBE4003B9774 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5A0CBCC22432EC0D003B9774 /* DustInfo.swift */,
-				5A84EB872435F8A4006E432F /* Station.swift */,
-				5A0CBCCA2432FF6E003B9774 /* DustInfoDataSource.swift */,
-				5A7BB4432436D5DE00BD54D9 /* Broadcast.swift */,
+				5A841C9124383DB7001F28EB /* DustInfo */,
+				5A841C9224383DE5001F28EB /* Broadcast */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,11 +125,8 @@
 		5A0CBCC42432EE60003B9774 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */,
-				5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */,
-				5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */,
-				5A2210A72436D9C20090D085 /* DateFormatterExtension.swift */,
-				5A2210A92436DFB70090D085 /* BroadcastViewModel.swift */,
+				5A841C9324383E04001F28EB /* DustInfo */,
+				5A841C9424383E16001F28EB /* Broadcast */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -139,8 +134,7 @@
 		5A0CBCC72432F17C003B9774 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A0CBCC82432F1A1003B9774 /* DustInfoCell.swift */,
-				5A64F6C724332EDE00A1C8FF /* StatusView.swift */,
+				5A841C9524383E3B001F28EB /* DustInfo */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,8 +170,7 @@
 				5A0CBCC42432EE60003B9774 /* ViewModels */,
 				5A0CBCC12432EBE4003B9774 /* Models */,
 				5A64F6D424337AEF00A1C8FF /* Delegates */,
-				5A4A9D3A2431CF7B00354ABC /* StationViewController.swift */,
-				5A4A9D3C2431CF7B00354ABC /* BroadcastViewController.swift */,
+				5A841C9624383E76001F28EB /* ViewControllers */,
 				5A4A9D3E2431CF7B00354ABC /* Main.storyboard */,
 				5A4A9D412431CF7D00354ABC /* Assets.xcassets */,
 				5A4A9D432431CF7D00354ABC /* LaunchScreen.storyboard */,
@@ -207,6 +200,7 @@
 		5A64F6C924332F4300A1C8FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5A2210A72436D9C20090D085 /* DateFormatterExtension.swift */,
 				5A64F6CA24332F5C00A1C8FF /* UIColorExtension.swift */,
 				5A64F6CC24332FB200A1C8FF /* CAGradientLayerExtension.swift */,
 			);
@@ -221,6 +215,60 @@
 				5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		5A841C9124383DB7001F28EB /* DustInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5A0CBCC22432EC0D003B9774 /* DustInfo.swift */,
+				5A84EB872435F8A4006E432F /* Station.swift */,
+				5A0CBCCA2432FF6E003B9774 /* DustInfoDataSource.swift */,
+			);
+			path = DustInfo;
+			sourceTree = "<group>";
+		};
+		5A841C9224383DE5001F28EB /* Broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				5A7BB4432436D5DE00BD54D9 /* Broadcast.swift */,
+			);
+			path = Broadcast;
+			sourceTree = "<group>";
+		};
+		5A841C9324383E04001F28EB /* DustInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5A0CBCC52432EE73003B9774 /* DustInfoViewModel.swift */,
+				5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */,
+				5A64F6CE2433316D00A1C8FF /* StatusViewModel.swift */,
+			);
+			path = DustInfo;
+			sourceTree = "<group>";
+		};
+		5A841C9424383E16001F28EB /* Broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				5A2210A92436DFB70090D085 /* BroadcastViewModel.swift */,
+			);
+			path = Broadcast;
+			sourceTree = "<group>";
+		};
+		5A841C9524383E3B001F28EB /* DustInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5A0CBCC82432F1A1003B9774 /* DustInfoCell.swift */,
+				5A64F6C724332EDE00A1C8FF /* StatusView.swift */,
+			);
+			path = DustInfo;
+			sourceTree = "<group>";
+		};
+		5A841C9624383E76001F28EB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A4A9D3A2431CF7B00354ABC /* StationViewController.swift */,
+				5A4A9D3C2431CF7B00354ABC /* BroadcastViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		5A84EB7524359C12006E432F /* Network */ = {
