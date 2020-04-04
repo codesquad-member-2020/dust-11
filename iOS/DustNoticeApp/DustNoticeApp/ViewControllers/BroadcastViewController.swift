@@ -22,9 +22,14 @@ final class BroadcastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureToggleButton()
+        configureDelegate()
         configureObserver()
         configureBroadcastInfo()
+    }
+    
+    private func configureDelegate() {
+        toggleButton.delegate = self
+        broadcastSlider.delegate = self
     }
     
     private func configureObserver() {
@@ -68,10 +73,6 @@ final class BroadcastViewController: UIViewController {
 }
 
 extension BroadcastViewController: ToggleButtonDelegate {
-    private func configureToggleButton() {
-        toggleButton.delegate = self
-    }
-    
     func animate(with isPlay: Bool) {
         UIView.transition(with: forecastImageView, duration: 1, options: .transitionCrossDissolve, animations: {
             self.processSlider()
@@ -91,5 +92,11 @@ extension BroadcastViewController: ToggleButtonDelegate {
     
     private func processImage() {
         broadcastViewModel.bind(forecastImageView, at: Int(broadcastSlider.value))
+    }
+}
+
+extension BroadcastViewController: BroadcastSliderDelegate {
+    func broadcastSliderValueDidChange(at sliderValue: Float) {
+        broadcastViewModel.bind(forecastImageView, at: Int(sliderValue))
     }
 }
