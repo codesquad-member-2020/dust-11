@@ -10,7 +10,7 @@ import UIKit
 
 final class BroadcastViewController: UIViewController {
     //MARK:- IBOutlet
-    @IBOutlet weak var broadcastImageView: UIImageView!
+    @IBOutlet weak var forecastImageView: ForecastImageView!
     @IBOutlet weak var broadcastLabel: BroadcastLabel!
     @IBOutlet weak var regionsLabel: BroadcastLabel!
     @IBOutlet weak var broadcastSlider: BroadcastSlider!
@@ -28,19 +28,28 @@ final class BroadcastViewController: UIViewController {
     }
     
     private func configureToggleButton() {
-        toggleButton.delegate = broadcastSlider
+        toggleButton.delegate = forecastImageView
     }
     
     private func configureObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(configureFirstBroadcastImage),
+        NotificationCenter.default.addObserver(self, selector: #selector(configureViews),
                                                name: BroadcastViewModel.Notification.broadcastImagesDidChange,
                                                object: broadcastViewModel)
     }
     
-    @objc private func configureFirstBroadcastImage() {
+    @objc private func configureViews() {
         DispatchQueue.main.async {
-            self.broadcastViewModel.bindFirstImage(self.broadcastImageView)
+            self.configureFirstImage()
+            self.configureSlider()
         }
+    }
+    
+    private func configureFirstImage() {
+        broadcastViewModel.bindFirstImage(self.forecastImageView)
+    }
+    
+    private func configureSlider() {
+        broadcastSlider.maximumValue = Float(broadcastViewModel.imagesCount - 1)
     }
     
     private func configureBroadcastInfo() {

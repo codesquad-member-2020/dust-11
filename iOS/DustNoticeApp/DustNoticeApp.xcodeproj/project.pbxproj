@@ -32,6 +32,7 @@
 		5A841C9C243849FC001F28EB /* BroadcastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841C9B243849FC001F28EB /* BroadcastLabel.swift */; };
 		5A841CA32438632A001F28EB /* BroadcastSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841CA22438632A001F28EB /* BroadcastSlider.swift */; };
 		5A841CA724386F29001F28EB /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841CA624386F29001F28EB /* ToggleButton.swift */; };
+		5A841CAB2438A8A0001F28EB /* ForecastImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841CAA2438A8A0001F28EB /* ForecastImageView.swift */; };
 		5A84EB7724359C23006E432F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB7624359C23006E432F /* LocationManager.swift */; };
 		5A84EB842435F463006E432F /* DustDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB832435F463006E432F /* DustDecoder.swift */; };
 		5A84EB862435F499006E432F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB852435F499006E432F /* NetworkManager.swift */; };
@@ -87,6 +88,7 @@
 		5A841C9B243849FC001F28EB /* BroadcastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BroadcastLabel.swift; path = DustNoticeApp/Views/Broadcast/BroadcastLabel.swift; sourceTree = SOURCE_ROOT; };
 		5A841CA22438632A001F28EB /* BroadcastSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSlider.swift; sourceTree = "<group>"; };
 		5A841CA624386F29001F28EB /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		5A841CAA2438A8A0001F28EB /* ForecastImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastImageView.swift; sourceTree = "<group>"; };
 		5A84EB7624359C23006E432F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5A84EB7D2435C376006E432F /* Janggi-dong.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Janggi-dong.gpx"; sourceTree = "<group>"; };
 		5A84EB832435F463006E432F /* DustDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustDecoder.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				5A841C9B243849FC001F28EB /* BroadcastLabel.swift */,
 				5A841CA22438632A001F28EB /* BroadcastSlider.swift */,
 				5A841CA624386F29001F28EB /* ToggleButton.swift */,
+				5A841CAA2438A8A0001F28EB /* ForecastImageView.swift */,
 			);
 			path = Broadcast;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				5A841CA32438632A001F28EB /* BroadcastSlider.swift in Sources */,
 				5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */,
 				5A841C9C243849FC001F28EB /* BroadcastLabel.swift in Sources */,
+				5A841CAB2438A8A0001F28EB /* ForecastImageView.swift in Sources */,
 				5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

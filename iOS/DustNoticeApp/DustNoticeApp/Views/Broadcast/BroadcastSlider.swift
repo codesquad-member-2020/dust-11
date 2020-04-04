@@ -28,13 +28,3 @@ final class BroadcastSlider: UISlider {
         
     }
 }
-
-extension BroadcastSlider: ToggleButtonDelegate {
-    func animate(with isPlay: Bool) {
-        if isPlay {
-            
-        } else {
-            
-        }
-    }
-}

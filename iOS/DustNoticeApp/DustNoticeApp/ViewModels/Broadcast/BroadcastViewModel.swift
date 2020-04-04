@@ -51,10 +51,10 @@ final class BroadcastViewModel {
         broadcastImageView.image = broadcastImages[firstImageIndex]
     }
     
-    func bindBroadcastLabel(_ broadcastLabel: UILabel) {
+    func bindBroadcastLabel(_ broadcastLabel: BroadcastLabel) {
         broadcastLabel.text = broadcast.informOverall
     }
-    func bindRegionsLabel(_ regionsLabel: UILabel) {
+    func bindRegionsLabel(_ regionsLabel: BroadcastLabel) {
         regionsLabel.text = broadcast.informGrade
     }
 }

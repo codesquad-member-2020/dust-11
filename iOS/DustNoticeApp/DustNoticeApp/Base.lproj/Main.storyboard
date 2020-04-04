@@ -172,7 +172,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-et-v6O">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-et-v6O" customClass="ForecastImageView" customModule="DustNoticeApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="98" width="375" height="435"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H1E-et-v6O" secondAttribute="height" multiplier="1:1.16" id="HlV-o5-FT6"/>
@@ -230,9 +230,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="broadcastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
                         <outlet property="broadcastLabel" destination="o5V-vC-0KH" id="dgC-a2-PqW"/>
                         <outlet property="broadcastSlider" destination="LNm-0I-P2E" id="eT6-FV-wd9"/>
+                        <outlet property="forecastImageView" destination="H1E-et-v6O" id="UaN-eK-iuA"/>
                         <outlet property="regionsLabel" destination="rRy-xn-7FK" id="tze-gI-C43"/>
                         <outlet property="toggleButton" destination="840-Tv-EaG" id="YWJ-E5-H9t"/>
                     </connections>
