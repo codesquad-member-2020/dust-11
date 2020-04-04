@@ -29,8 +29,11 @@
 		5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */; };
 		5A64F6E02434E66A00A1C8FF /* DustInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */; };
 		5A7BB4442436D5DE00BD54D9 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BB4432436D5DE00BD54D9 /* Broadcast.swift */; };
+		5A841C9C243849FC001F28EB /* BroadcastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841C9B243849FC001F28EB /* BroadcastLabel.swift */; };
+		5A841CA32438632A001F28EB /* BroadcastSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841CA22438632A001F28EB /* BroadcastSlider.swift */; };
+		5A841CA524386496001F28EB /* BroadcastButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A841CA424386496001F28EB /* BroadcastButton.swift */; };
 		5A84EB7724359C23006E432F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB7624359C23006E432F /* LocationManager.swift */; };
-		5A84EB842435F463006E432F /* DustInfoDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB832435F463006E432F /* DustInfoDecoder.swift */; };
+		5A84EB842435F463006E432F /* DustDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB832435F463006E432F /* DustDecoder.swift */; };
 		5A84EB862435F499006E432F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB852435F499006E432F /* NetworkManager.swift */; };
 		5A84EB882435F8A4006E432F /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84EB872435F8A4006E432F /* Station.swift */; };
 /* End PBXBuildFile section */
@@ -81,9 +84,12 @@
 		5A64F6D22433591A00A1C8FF /* DustInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoDelegate.swift; sourceTree = "<group>"; };
 		5A64F6DF2434E66A00A1C8FF /* DustInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoViewModels.swift; sourceTree = "<group>"; };
 		5A7BB4432436D5DE00BD54D9 /* Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
+		5A841C9B243849FC001F28EB /* BroadcastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BroadcastLabel.swift; path = DustNoticeApp/Views/Broadcast/BroadcastLabel.swift; sourceTree = SOURCE_ROOT; };
+		5A841CA22438632A001F28EB /* BroadcastSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSlider.swift; sourceTree = "<group>"; };
+		5A841CA424386496001F28EB /* BroadcastButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastButton.swift; sourceTree = "<group>"; };
 		5A84EB7624359C23006E432F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5A84EB7D2435C376006E432F /* Janggi-dong.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Janggi-dong.gpx"; sourceTree = "<group>"; };
-		5A84EB832435F463006E432F /* DustInfoDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustInfoDecoder.swift; sourceTree = "<group>"; };
+		5A84EB832435F463006E432F /* DustDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustDecoder.swift; sourceTree = "<group>"; };
 		5A84EB852435F499006E432F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5A84EB872435F8A4006E432F /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				5A841C9524383E3B001F28EB /* DustInfo */,
+				5A841C9D24384A1A001F28EB /* Broadcast */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +278,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		5A841C9D24384A1A001F28EB /* Broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				5A841C9B243849FC001F28EB /* BroadcastLabel.swift */,
+				5A841CA22438632A001F28EB /* BroadcastSlider.swift */,
+				5A841CA424386496001F28EB /* BroadcastButton.swift */,
+			);
+			path = Broadcast;
+			sourceTree = "<group>";
+		};
 		5A84EB7524359C12006E432F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +300,7 @@
 		5A84EB822435F444006E432F /* Coder */ = {
 			isa = PBXGroup;
 			children = (
-				5A84EB832435F463006E432F /* DustInfoDecoder.swift */,
+				5A84EB832435F463006E432F /* DustDecoder.swift */,
 			);
 			path = Coder;
 			sourceTree = "<group>";
@@ -423,7 +440,7 @@
 				5A4A9D3D2431CF7B00354ABC /* BroadcastViewController.swift in Sources */,
 				5A64F6CD24332FB200A1C8FF /* CAGradientLayerExtension.swift in Sources */,
 				5A2210A82436D9C20090D085 /* DateFormatterExtension.swift in Sources */,
-				5A84EB842435F463006E432F /* DustInfoDecoder.swift in Sources */,
+				5A84EB842435F463006E432F /* DustDecoder.swift in Sources */,
 				5A84EB7724359C23006E432F /* LocationManager.swift in Sources */,
 				5A0CBCC32432EC0D003B9774 /* DustInfo.swift in Sources */,
 				5A64F6D32433591A00A1C8FF /* DustInfoDelegate.swift in Sources */,
@@ -434,11 +451,14 @@
 				5A84EB882435F8A4006E432F /* Station.swift in Sources */,
 				5A84EB862435F499006E432F /* NetworkManager.swift in Sources */,
 				5A4A9D372431CF7B00354ABC /* AppDelegate.swift in Sources */,
+				5A841CA524386496001F28EB /* BroadcastButton.swift in Sources */,
 				5A0CBCC92432F1A1003B9774 /* DustInfoCell.swift in Sources */,
 				5A64F6E02434E66A00A1C8FF /* DustInfoViewModels.swift in Sources */,
 				5A7BB4442436D5DE00BD54D9 /* Broadcast.swift in Sources */,
 				5A64F6CB24332F5C00A1C8FF /* UIColorExtension.swift in Sources */,
+				5A841CA32438632A001F28EB /* BroadcastSlider.swift in Sources */,
 				5A0CBCC62432EE73003B9774 /* DustInfoViewModel.swift in Sources */,
+				5A841C9C243849FC001F28EB /* BroadcastLabel.swift in Sources */,
 				5A4A9D392431CF7B00354ABC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
