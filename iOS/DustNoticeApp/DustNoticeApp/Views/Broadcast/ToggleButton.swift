@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol ToggleButtonDelegate: class {
+    func animate(with isPlay: Bool)
+}
+
 final class ToggleButton: UIButton {
+    var delegate: ToggleButtonDelegate?
     private var isPlay = false
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +47,7 @@ final class ToggleButton: UIButton {
     @objc func toggle() {
         toggleIsPlay()
         toggleButtonImage()
+        processBroadcastSlider()
     }
     
     private static let playImage = UIImage(systemName: "play.fill")!
@@ -55,6 +62,10 @@ final class ToggleButton: UIButton {
         } else {
             setImage(ToggleButton.playImage, for: .normal)
         }
+    }
+    
+    private func processBroadcastSlider() {
+        delegate?.animate(with: isPlay)
     }
 }
 

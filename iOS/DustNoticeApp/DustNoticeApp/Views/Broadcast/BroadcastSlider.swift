@@ -27,5 +27,14 @@ final class BroadcastSlider: UISlider {
     @objc private func silderValueChanged() {
         
     }
-    
+}
+
+extension BroadcastSlider: ToggleButtonDelegate {
+    func animate(with isPlay: Bool) {
+        if isPlay {
+            
+        } else {
+            
+        }
+    }
 }

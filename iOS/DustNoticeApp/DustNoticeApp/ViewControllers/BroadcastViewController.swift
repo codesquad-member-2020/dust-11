@@ -22,8 +22,13 @@ final class BroadcastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureToggleButton()
         configureObserver()
         configureBroadcastInfo()
+    }
+    
+    private func configureToggleButton() {
+        toggleButton.delegate = broadcastSlider
     }
     
     private func configureObserver() {
