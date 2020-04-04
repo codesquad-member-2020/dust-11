@@ -10,11 +10,11 @@ import UIKit
 
 final class BroadcastViewController: UIViewController {
     //MARK:- IBOutlet
-    @IBOutlet weak var broadcastImageView: UIImageView!
-    @IBOutlet weak var broadcastLabel: UILabel!
-    @IBOutlet weak var regionsLabel: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var forecastImageView: UIImageView!
+    @IBOutlet weak var broadcastLabel: BroadcastLabel!
+    @IBOutlet weak var regionsLabel: BroadcastLabel!
+    @IBOutlet weak var broadcastSlider: BroadcastSlider!
+    @IBOutlet weak var toggleButton: ToggleButton!
     
     //MARK:- Internal Property
     private let dateProvider: () -> Date = Date.init
@@ -22,85 +22,81 @@ final class BroadcastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSlider()
-        configureButton()
+        configureDelegate()
         configureObserver()
         configureBroadcastInfo()
     }
     
-    private func configureSlider() {
-        slider.addTarget(self, action: #selector(silderValueChanged), for: .valueChanged)
-    }
-    
-    @objc private func silderValueChanged() {
-        guard broadcastViewModel.count != 0 else { return }
-        let unit = slider.maximumValue / Float(broadcastViewModel.count)
-        let currentValue = slider.value
-        let currentIndex = Int(currentValue / unit)
-        guard currentIndex < broadcastViewModel.count else { return }
-        broadcastImageView.image = broadcastViewModel.broadcastImages[currentIndex]
-    }
-    
-    private func configureButton() {
-        button.addTarget(self, action: #selector(buttonTouchupInside), for: .touchUpInside)
-    }
-    
-    private var isPlay = false
-    @objc func buttonTouchupInside() {
-        isPlay = !isPlay
-        if isPlay {
-            guard let pauseImage = UIImage(systemName: "pause.fill") else { return }
-            button.setImage(pauseImage, for: .normal)
-            
-            guard broadcastViewModel.count != 0 else { return }
-            let unit = self.slider.maximumValue / Float(self.broadcastViewModel.count)
-            var curValue: Float = 0
-            UIView.animate(withDuration: 1.0,
-                           delay: 0,
-                           options: [.autoreverse,.repeat],
-                           animations: {
-                            self.slider.setValue(curValue, animated: true)
-                            curValue = curValue + unit / unit
-                            let curIndex = Int(curValue) % self.broadcastViewModel.count
-                            self.broadcastImageView.image = self.broadcastViewModel.broadcastImages[curIndex]
-            }, completion: nil)
-        } else {
-            guard let playImage = UIImage(systemName: "play.fill") else { return }
-            self.button.setImage(playImage, for: .normal)
-        }
+    private func configureDelegate() {
+        toggleButton.delegate = self
+        broadcastSlider.delegate = self
     }
     
     private func configureObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(configureFirstBroadcastImage),
+        NotificationCenter.default.addObserver(self, selector: #selector(configureViews),
                                                name: BroadcastViewModel.Notification.broadcastImagesDidChange,
                                                object: broadcastViewModel)
     }
     
-    @objc private func configureFirstBroadcastImage() {
-        let firstImageCount = 1
-        let firstIndex = 0
-        if broadcastViewModel.count == firstImageCount {
-            DispatchQueue.main.async {
-                self.broadcastImageView.image = self.broadcastViewModel.broadcastImages[firstIndex]
-            }
+    @objc private func configureViews() {
+        DispatchQueue.main.async {
+            self.configureFirstImage()
+            self.configureSlider()
         }
+    }
+    
+    private func configureFirstImage() {
+        broadcastViewModel.bindFirstImage(self.forecastImageView)
+    }
+    
+    private func configureSlider() {
+        broadcastSlider.maximumValue = Float(broadcastViewModel.imagesCount - 1)
     }
     
     private func configureBroadcastInfo() {
         let date = dateProvider()
         let dateString = DateFormatter.broadcastDateFormatter.string(from: date)
-        DustInfoDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
+        DustDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
         with: NetworkManager()) { broadcast in
             guard let broadcast = broadcast else { return }
             self.configureBroadcastViewModel(broadcast)
             DispatchQueue.main.async {
-                self.broadcastLabel.text = self.broadcastViewModel.broadcast.informOverall
-                self.regionsLabel.text = self.broadcastViewModel.broadcast.informGrade
+                self.broadcastViewModel.bindBroadcastLabel(self.broadcastLabel)
+                self.broadcastViewModel.bindRegionsLabel(self.regionsLabel)
             }
         }
     }
     
     private func configureBroadcastViewModel(_ broadcast: Broadcast) {
         broadcastViewModel = BroadcastViewModel(broadcast: broadcast)
+    }
+}
+
+extension BroadcastViewController: ToggleButtonDelegate {
+    func animate(with isPlay: Bool) {
+        UIView.transition(with: forecastImageView, duration: 1, options: .transitionCrossDissolve, animations: {
+            self.processSlider()
+            self.processImage()
+        }) { result in
+            if result, isPlay {
+                self.animate(with: isPlay)
+            }
+        }
+    }
+    
+    private func processSlider() {
+        let mod = broadcastViewModel.imagesCount
+        let nextIndex = Int(broadcastSlider.value + 1) % mod
+        broadcastSlider.setValue(Float(nextIndex), animated: true)
+    }
+    
+    private func processImage() {
+        broadcastViewModel.bind(forecastImageView, at: Int(broadcastSlider.value))
+    }
+}
+
+extension BroadcastViewController: BroadcastSliderDelegate {
+    func broadcastSliderValueDidChange(at sliderValue: Float) {
+        broadcastViewModel.bind(forecastImageView, at: Int(sliderValue))
     }
 }

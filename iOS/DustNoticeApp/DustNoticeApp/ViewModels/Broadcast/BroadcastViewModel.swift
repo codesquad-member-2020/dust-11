@@ -12,9 +12,10 @@ final class BroadcastViewModel {
     enum Notification {
         static let broadcastImagesDidChange = Foundation.Notification.Name("broadcastImagesDidChange")
     }
-    let broadcast: Broadcast
-    var broadcastImages = [UIImage]()
-    var count: Int {
+    private let broadcast: Broadcast
+    private var broadcastImages = [UIImage]()
+    private static let totalImagesCount = 3
+    var imagesCount: Int {
         return broadcastImages.count
     }
     
@@ -34,12 +35,33 @@ final class BroadcastViewModel {
             guard error == nil else { return }
             guard let data = data else { return }
             self.insertBroadcastImage(data: data)
-            NotificationCenter.default.post(name: Notification.broadcastImagesDidChange, object: self)
+            if self.imagesCount == BroadcastViewModel.totalImagesCount {
+                NotificationCenter.default.post(name: Notification.broadcastImagesDidChange, object: self)
+            }
         }
     }
     
     private func insertBroadcastImage(data: Data) {
         guard let broadcastImage = UIImage(data: data) else { return }
         broadcastImages.append(broadcastImage)
+    }
+    
+    func bindFirstImage(_ broadcastImageView: UIImageView) {
+        let firstImageIndex = 0
+        broadcastImageView.image = broadcastImages[firstImageIndex]
+    }
+    
+    func bind(_ forecastImageView: UIImageView, at index: Int) {
+        guard index < imagesCount else { return }
+        forecastImageView.image = broadcastImages[index]
+        
+    }
+    
+    func bindBroadcastLabel(_ broadcastLabel: BroadcastLabel) {
+        broadcastLabel.text = broadcast.informOverall
+    }
+    
+    func bindRegionsLabel(_ regionsLabel: BroadcastLabel) {
+        regionsLabel.text = broadcast.informGrade
     }
 }
