@@ -16,7 +16,6 @@ public class Pm10List {
     this.list = list;
   }
 
-
   @Override
   public String toString() {
     return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
