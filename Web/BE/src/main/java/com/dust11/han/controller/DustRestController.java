@@ -3,12 +3,13 @@ package com.dust11.han.controller;
 import com.dust11.han.model.DustList;
 import com.dust11.han.model.LocationList;
 import com.dust11.han.model.LocationRequest;
+import com.dust11.han.model.Pm10List;
 import com.dust11.han.model.Pm10Request;
+import com.dust11.han.model.Pm10RequestDeserializer;
 import com.dust11.han.model.TmXYList;
 import com.dust11.han.model.TmXYRequest;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.GsonBuilder;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -131,7 +132,7 @@ public class DustRestController {
 
   @GetMapping("/pm10/{date}")
   @ApiOperation("날짜 기준으로, PM10 대기오염정보 현황을 반환 ")
-  public String pm10Animations(
+  public Pm10List pm10Animations(
       @PathVariable(value = "date") @ApiParam("예시 : 2020-04-01") String searchDate)
       throws IOException {
     StringBuilder url = new StringBuilder(
@@ -156,9 +157,13 @@ public class DustRestController {
     HttpEntity<String> request = new HttpEntity<>(httpHeaders);
     ResponseEntity<String> responseEntity = restTemplate
         .exchange(uri, HttpMethod.GET, request, String.class);
-    JsonObject jsonObject = JsonParser.parseString(responseEntity.getBody()).getAsJsonObject()
-        .get("list").getAsJsonArray().get(0).getAsJsonObject();
-    Pm10Request pm10Request = gson.fromJson(jsonObject, Pm10Request.class);
-    return pm10Request.toString();
+    Gson gp = new GsonBuilder()
+        .registerTypeAdapter(Pm10Request.class, new Pm10RequestDeserializer())
+        .create();
+//    JsonObject jsonObject = JsonParser.parseString(responseEntity.getBody()).getAsJsonObject()
+//        .get("list").getAsJsonArray().get(0).getAsJsonObject();
+//    Pm10Request pm10Request = gson.fromJson(jsonObject, Pm10Request.class);
+    Pm10List pm10List = gp.fromJson(responseEntity.getBody(), Pm10List.class);
+    return pm10List;
   }
 }

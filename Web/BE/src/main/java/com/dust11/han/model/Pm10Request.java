@@ -1,27 +1,25 @@
 package com.dust11.han.model;
 
+import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class Pm10Request {
 
-  private String imageUrl1;
-  private String imageUrl2;
-  private String imageUrl3;
+  private List<Image> images;
   private String informGrade;
   private String informOverall;
   private String dataTime;
 
-  public String getImageUrl1() {
-    return imageUrl1;
+  public Pm10Request(List<Image> images, String informGrade,
+      String informOverall, String dataTime) {
+    this.images = images;
+    this.informGrade = informGrade;
+    this.informOverall = informOverall;
+    this.dataTime = dataTime;
   }
 
-  public String getImageUrl2() {
-    return imageUrl2;
-  }
-
-  public String getImageUrl3() {
-    return imageUrl3;
+  public List<Image> getImages() {
+    return images;
   }
 
   public String getInformGrade() {
@@ -38,10 +36,8 @@ public class Pm10Request {
 
   @Override
   public String toString() {
-    return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
-        .append("imageUrl1", imageUrl1)
-        .append("imageUrl2", imageUrl2)
-        .append("imageUrl3", imageUrl3)
+    return new ToStringBuilder(this)
+        .append("images", images)
         .append("informGrade", informGrade)
         .append("informOverall", informOverall)
         .append("dataTime", dataTime)
