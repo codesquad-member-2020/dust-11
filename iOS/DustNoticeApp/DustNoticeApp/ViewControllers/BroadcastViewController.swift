@@ -59,6 +59,7 @@ final class BroadcastViewController: UIViewController {
         DustDecoder.decodeBroadcast(from: "\(NetworkManager.EndPoints.broadcastURL)\(dateString)",
         with: NetworkManager()) { broadcast in
             guard let broadcast = broadcast else { return }
+            
             self.configureBroadcastViewModel(broadcast)
             DispatchQueue.main.async {
                 self.broadcastViewModel.bindBroadcastLabel(self.broadcastLabel)
@@ -74,9 +75,13 @@ final class BroadcastViewController: UIViewController {
 
 extension BroadcastViewController: ToggleButtonDelegate {
     func animate(with isPlay: Bool) {
-        UIView.transition(with: forecastImageView, duration: 1, options: .transitionCrossDissolve, animations: {
-            self.processSlider()
-            self.processImage()
+        UIView.transition(
+            with: forecastImageView,
+            duration: 1,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.processSlider()
+                self.processImage()
         }) { result in
             if result, isPlay {
                 self.animate(with: isPlay)

@@ -13,7 +13,7 @@ protocol ToggleButtonDelegate: class {
 }
 
 final class ToggleButton: UIButton {
-    var delegate: ToggleButtonDelegate?
+    weak var delegate: ToggleButtonDelegate?
     private var isPlay = false
     
     
