@@ -24,6 +24,10 @@ final class BroadcastSlider: UISlider {
         super.init(coder: coder)
         configureDelegate()
     }
+
+    deinit {
+        removeTarget(self, action: #selector(silderValueChanged), for: .valueChanged)
+    }
     
     private func configureDelegate() {
         addTarget(self, action: #selector(silderValueChanged), for: .valueChanged)
