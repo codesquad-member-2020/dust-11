@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol BroadcastSliderDelegate {
+protocol BroadcastSliderDelegate: class {
     func broadcastSliderValueDidChange(at sliderValue: Float)
 }
 
 final class BroadcastSlider: UISlider {
-    var delegate: BroadcastSliderDelegate?
+    weak var delegate: BroadcastSliderDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +23,10 @@ final class BroadcastSlider: UISlider {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureDelegate()
+    }
+
+    deinit {
+        removeTarget(self, action: #selector(silderValueChanged), for: .valueChanged)
     }
     
     private func configureDelegate() {

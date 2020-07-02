@@ -14,7 +14,7 @@ extension DateFormatter {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         dateFormatter.locale = Locale(identifier: "ko_KR")
         return dateFormatter
-    }()
+}()
     
     static let broadcastDateFormatter : DateFormatter = {
         let dateFormatter = DateFormatter()

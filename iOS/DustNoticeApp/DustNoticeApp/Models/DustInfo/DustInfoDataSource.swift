@@ -25,7 +25,7 @@ extension DustInfoDataSource {
         guard let dustInfoCell = tableView.dequeueReusableCell(withIdentifier: DustInfoCell.reuseIdentifier,
                                                                for: indexPath) as? DustInfoCell else { return DustInfoCell() }
         let index = indexPath.row
-        guard index < dustInfoViewModels.count else { return DustInfoCell() }
+        guard index < dustInfoViewModels.count else { return dustInfoCell }
         
         dustInfoViewModels.bind(at: index, dustInfoCell: dustInfoCell)
         return dustInfoCell

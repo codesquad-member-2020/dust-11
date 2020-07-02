@@ -13,7 +13,7 @@ protocol ToggleButtonDelegate: class {
 }
 
 final class ToggleButton: UIButton {
-    var delegate: ToggleButtonDelegate?
+    weak var delegate: ToggleButtonDelegate?
     private var isPlay = false
     
     
@@ -31,6 +31,14 @@ final class ToggleButton: UIButton {
         configureDelegate()
     }
     
+    deinit {
+        removeTarget(self, action: #selector(toggle), for: .touchUpInside)
+    }
+    
+    private func configureDelegate() {
+        addTarget(self, action: #selector(toggle), for: .touchUpInside)
+    }
+    
     private func configureBorder() {
         layer.borderWidth = 0.9
         layer.borderColor = UIColor.black.cgColor
@@ -38,10 +46,6 @@ final class ToggleButton: UIButton {
     
     private func configureFirstImage() {
         setImage(ToggleButton.playImage, for: .normal)
-    }
-    
-    private func configureDelegate() {
-        addTarget(self, action: #selector(toggle), for: .touchUpInside)
     }
     
     @objc func toggle() {
